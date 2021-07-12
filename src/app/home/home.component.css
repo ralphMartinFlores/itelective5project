@@ -1,0 +1,178 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.main-container {
+    max-width: 56.25rem;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+
+.navbar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.navbar a {
+    color: black;
+}
+
+.navbar a:hover {
+    color: forestgreen;
+}
+
+.header-text-image-container {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    gap: 1rem;
+}
+
+.header-text h2 {
+    margin-top: -1.563rem;
+}
+
+.featured-product {
+    display: flex;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+}
+
+
+.featured-product-image {
+    max-width: 50%;
+    height: auto;
+    /* border: 1px solid red; */
+}
+
+.checkout-btn {
+    border-radius: 3rem;
+    background-color: forestgreen;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-btn:hover {
+    background-color: green;
+}
+
+.header-image {
+    width: 25rem;
+    height: auto;
+    /* border: 1px solid red; */
+}
+
+.categories-container, .stores-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.category-card, .store-card {
+    padding: 1rem;
+    background-color: whitesmoke;
+    border-radius: 1.25rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.category-card, .store-card p {
+    padding-bottom: 0;
+}
+
+.store-card:hover {
+    background-color: lightgray;
+}
+
+.category-card img {
+    width: 6.25rem;
+    height: 6.25rem;
+}
+
+.store-card img {
+    width: 8rem;
+    height: 8rem;
+}
+
+.title-seeallbtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-seeallbtn span {
+    vertical-align: -5px;
+}
+
+.title-seeallbtn a {
+    font-size: 1.125rem;
+    color: gray;
+}
+
+.title-seeallbtn a:hover {
+    color: dimgray;
+}
+
+.meat {
+    background-color: rgb(252, 83, 98, 0.4);
+}
+
+.veggie {
+    background-color: rgb(76, 188, 100, 0.5);
+}
+
+.seafood {
+    background-color: rgb(228, 121, 68, 0.4);
+}
+
+.personalcare {
+    background-color: rgb(92, 188, 243, 0.4);
+}
+
+.drinks {
+    background-color: rgb(52, 92, 124, 0.4);
+}
+
+.canned {
+    background-color: rgb(130, 141, 157, 0.3);
+}
+
+.dairy {
+    background-color: rgb(57, 145, 207, 0.4);
+}
+
+.cleaners {
+    background-color: rgb(228, 60, 124, 0.3);
+}
+
+.fruits {
+    background-color: rgb(224, 198, 70, 0.4);
+}
+
+.bread {
+    background-color: rgb(208, 162, 135, 0.6);
+}
+
+@media (max-width: 46.875rem) { 
+    .navbar, .header-text-image-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-image {
+        display: none;
+    }
+  }
