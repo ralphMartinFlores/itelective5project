@@ -12,6 +12,11 @@ import { LoginComponent } from './login/login.component';
 import { StoreComponent } from './store/store.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AllstoresComponent } from './allstores/allstores.component';
+import { ChooseupdateprofileComponent } from './chooseupdateprofile/chooseupdateprofile.component';
+import { UpdatenameComponent } from './updatename/updatename.component';
+import { UpdateaddressComponent } from './updateaddress/updateaddress.component';
+import { UpdatecontactComponent } from './updatecontact/updatecontact.component';
+import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { AllstoresComponent } from './allstores/allstores.component';
     LoginComponent,
     StoreComponent,
     ProfileComponent,
-    AllstoresComponent
+    AllstoresComponent,
+    ChooseupdateprofileComponent,
+    UpdatenameComponent,
+    UpdateaddressComponent,
+    UpdatecontactComponent,
+    UpdatepasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,11 @@ import { LoginComponent } from './login/login.component';
 import { StoreComponent } from './store/store.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AllstoresComponent } from './allstores/allstores.component';
+import { ChooseupdateprofileComponent } from './chooseupdateprofile/chooseupdateprofile.component';
+import { UpdatenameComponent } from './updatename/updatename.component';
+import { UpdateaddressComponent } from './updateaddress/updateaddress.component';
+import { UpdatecontactComponent } from './updatecontact/updatecontact.component';
+import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,6 +25,11 @@ const routes: Routes = [
   { path: 'store', component: StoreComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'allstores', component: AllstoresComponent },
+  { path: 'chooseupdate', component: ChooseupdateprofileComponent },
+  { path: 'updatename', component: UpdatenameComponent },
+  { path: 'updateaddress', component: UpdateaddressComponent },
+  { path: 'updatecontact', component: UpdatecontactComponent },
+  { path: 'updatepassword', component: UpdatepasswordComponent },
 ];
 
 @NgModule({

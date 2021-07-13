@@ -1,0 +1,101 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.main-container {
+    max-width: 56.25rem;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+
+.navbar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.navbar a {
+    color: black;
+}
+
+.navbar a:hover {
+    color: forestgreen;
+}
+
+.header-text-image-container {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    gap: 1rem;
+}
+
+.header-text h2 {
+    margin-top: -1.563rem;
+}
+
+.header-image {
+    width: 30rem;
+    height: auto;
+    /* border: 1px solid red; */
+}
+
+/* .checkout-btn {
+    border-radius: 3rem;
+    background-color: forestgreen;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-btn:hover {
+    background-color: green;
+}
+
+.checkout-btn p {
+    font-size: 1.25rem;
+} */
+
+.update-options-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.update-option {
+    padding: 1rem;
+    background-color: whitesmoke;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.update-option:hover {
+    background-color: lightgray;
+}
+
+
+.update-icon-text img {
+    width: 8rem;
+    height: 8rem;
+}
+
+@media (max-width: 46.875rem) { 
+    .navbar, .header-text-image-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .header-image {
+        display: none;
+    }
+}
