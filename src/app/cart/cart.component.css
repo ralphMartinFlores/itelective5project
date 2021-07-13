@@ -20,10 +20,14 @@ a {
 
 .navbar a {
     color: black;
+    border-radius: 10px;
+    background-color: white;
+    padding: 1rem;
 }
 
 .navbar a:hover {
-    color: forestgreen;
+    background-color: forestgreen;
+    color: white;
 }
 
 .header-text-image-container {
@@ -54,6 +58,11 @@ a {
 
 .checkout-btn p {
     font-size: 1.25rem;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .header-image-container img {

@@ -11,13 +11,13 @@
     <div class="main-container">
 
         <div class="navbar">
-            <a href="">Home</a>
-            <a href="">Login</a>
-            <a href="">Register</a>
+            <a routerLink="/home">Home</a>
+            <a routerLink="/login">Login</a>
+            <a routerLink="/profile">Profile</a>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a href="">Cart</a>
-            <a href="">Profile</a>
-            <a href="">Logout</a>
+            <a routerLink="/cart">Cart</a>
+            <a routerLink="/orders">Orders</a>
+            <a routerLink="/login">Logout</a>
         </div>
 
         <div class="header-text-image-container">
@@ -45,7 +45,7 @@
         <h1>Browse by Category</h1>
 
         <div class="categories-container">
-            <div class="category-card meat">
+            <div class="category-card meat" routerLink="/category">
                 <img src="../../assets/images/meat.png">
                 <p>Meat</p>
             </div>
@@ -85,29 +85,29 @@
 
         <div class="title-seeallbtn">
             <h1>Browse by Store</h1>
-            <a href="">See All  ❯</a>
+            <a routerLink="/allstores">See All  ❯</a>
         </div>
 
         <!-- <h1>Browse by Store</h1> -->
 
         <div class="stores-container">
-            <div class="store-card">
+            <div class="store-card" routerLink="/store">
                 <img src="../../assets/images/store.png">
                 <p>Puregold Olongapo</p>
             </div>
-            <div class="store-card">
+            <div class="store-card" routerLink="/store">
                 <img src="../../assets/images/store.png">
                 <p>Jelebee Supermart</p>
             </div>
-            <div class="store-card">
+            <div class="store-card" routerLink="/store">
                 <img src="../../assets/images/store.png">
                 <p>Store</p>
             </div>
-            <div class="store-card">
+            <div class="store-card" routerLink="/store">
                 <img src="../../assets/images/store.png">
                 <p>Store</p>
             </div>
-            <div class="store-card">
+            <div class="store-card" routerLink="/store">
                 <img src="../../assets/images/store.png">
                 <p>Store</p>
             </div>

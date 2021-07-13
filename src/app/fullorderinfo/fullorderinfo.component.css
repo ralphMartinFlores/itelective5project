@@ -48,17 +48,83 @@ a {
     /* border: 1px solid red; */
 }
 
+.orderinfo-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.orderinfo {
+    padding: 0.625rem 1rem;
+    background-color: whitesmoke;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.orderinfo:hover, .centered-orderinfo:hover {
+    background-color: lightgray;
+}
+
+.orderinfo p {
+    margin: 0;
+}
+
+.gcashlogo {
+    width: 128px;
+    height: auto;
+}
+
+.order-items, .payment-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-items p:last-of-type {
+    text-align: right;
+}
+
+.orderinfo-text {
+    flex-grow: 1;
+}
+
+.header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.centered-orderinfo {
+    padding: 0.625rem 1rem;
+    background-color: whitesmoke;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    text-align: center;
+}
+
+.centered-orderinfo p {
+    margin: 0;
+    word-break: break-all;
+}
+
 .checkout-btn {
     border-radius: 3rem;
-    background-color: forestgreen;
+    background-color: #a91409;
     color: white;
     display: flex;
+    gap: 0.625rem;
     justify-content: center;
     align-items: center;
 }
 
 .checkout-btn:hover {
-    background-color: green;
+    background-color: #98100e;
 }
 
 .checkout-btn p {
@@ -70,44 +136,21 @@ a {
     user-select: none;
 }
 
-.input-container {
-    display: flex;
-    gap: 1rem;
-}
-
-input {
-    background-color: whitesmoke;
-    border: 1px solid whitesmoke;
-    border-radius: 3.125rem;
-    padding: 1.5rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: 0.031rem;
-    margin: 0 auto;
-}
-
-input:focus {
-    outline: none !important;
-}
-
 @media (max-width: 46.875rem) { 
     .navbar, .header-text-image-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
     }
 
     .header-image {
         display: none;
     }
 
-    .input-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+    .orderinfo img {
+        display: none;
     }
 
-    input {
-        width: 100%;
+    .orderinfo-text p {
+        flex: 1;
     }
-}
+  }

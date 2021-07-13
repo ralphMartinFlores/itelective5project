@@ -10,13 +10,13 @@
     <div class="main-container">
 
         <div class="navbar">
-            <a href="">Home</a>
-            <a href="">Login</a>
-            <a href="">Register</a>
+            <a routerLink="/home">Home</a>
+            <a routerLink="/login">Login</a>
+            <a routerLink="/profile">Profile</a>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a href="">Cart</a>
-            <a href="">Profile</a>
-            <a href="">Logout</a>
+            <a routerLink="/cart">Cart</a>
+            <a routerLink="/orders">Orders</a>
+            <a routerLink="/login">Logout</a>
         </div>
 
         <div class="header-text-image-container">
@@ -34,25 +34,25 @@
         </div>
 
         <div class="update-options-container">
-            <div class="update-option">
+            <div class="update-option" routerLink="/updatename">
                 <div class="update-icon-text">
                     <img src="../../assets/images/user.png">
                     <p>Update Name</p>
                 </div>
             </div>
-            <div class="update-option">
+            <div class="update-option" routerLink="/updateaddress">
                 <div class="update-icon-text">
                     <img src="../../assets/images/location.png">
                     <p>Change Address</p>
                 </div>
             </div>
-            <div class="update-option">
+            <div class="update-option" routerLink="/updatecontact">
                 <div class="update-icon-text">
                     <img src="../../assets/images/telephone.png">
                     <p>Update Contact</p>
                 </div>
             </div>
-            <div class="update-option">
+            <div class="update-option" routerLink="/updatepassword">
                 <div class="update-icon-text">
                     <img src="../../assets/images/passwordlock.png">
                     <p>Change Password</p>

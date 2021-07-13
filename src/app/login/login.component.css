@@ -68,6 +68,14 @@
     margin: 0 auto;
 }
 
+.login-btn p {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .login-btn:hover {
     background-color: green;
 }

@@ -11,13 +11,13 @@
     <div class="main-container">
 
         <div class="navbar">
-            <a href="">Home</a>
-            <a href="">Login</a>
-            <a href="">Register</a>
+            <a routerLink="/home">Home</a>
+            <a routerLink="/login">Login</a>
+            <a routerLink="/profile">Profile</a>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a href="">Cart</a>
-            <a href="">Profile</a>
-            <a href="">Logout</a>
+            <a routerLink="/cart">Cart</a>
+            <a routerLink="/orders">Orders</a>
+            <a routerLink="/login">Logout</a>
         </div>
 
         <div class="header-text-image-container">
@@ -26,7 +26,7 @@
                 <h2>Items you added in your cart appear here.</h2>
 
                 <div class="checkout-btn">
-                    <p>Checkout</p>
+                    <p routerLink="/receipt">Checkout</p>
                 </div>
 
             </div>

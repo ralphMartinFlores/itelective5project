@@ -11,13 +11,13 @@
     <div class="main-container">
 
         <div class="navbar">
-            <a href="">Home</a>
-            <a href="">Login</a>
-            <a href="">Register</a>
+            <a routerLink="/home">Home</a>
+            <a routerLink="/login">Login</a>
+            <a routerLink="/profile">Profile</a>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a href="">Cart</a>
-            <a href="">Profile</a>
-            <a href="">Logout</a>
+            <a routerLink="/cart">Cart</a>
+            <a routerLink="/orders">Orders</a>
+            <a routerLink="/login">Logout</a>
         </div>
 
         <div class="header-text-image-container">
@@ -31,7 +31,7 @@
         </div>
 
         <div class="orders-container">
-            <div class="order-card">
+            <div class="order-card" routerLink="/fullorderinfo">
                 <div class="order-card-img">
                     <img src="../../assets/images/tbd.png">
                 </div>
@@ -41,7 +41,7 @@
                     <p class="status">To Be Delivered</p>
                 </div>
             </div>
-            <div class="order-card">
+            <div class="order-card" routerLink="/fullorderinfo">
                 <div class="order-card-img">
                     <img src="../../assets/images/checklist.png">
                 </div>
@@ -51,7 +51,7 @@
                     <p class="status">Delivered</p>
                 </div>
             </div>
-            <div class="order-card">
+            <div class="order-card" routerLink="/fullorderinfo">
                 <div class="order-card-img">
                     <img src="../../assets/images/cancelledorder.png">
                 </div>
@@ -61,7 +61,7 @@
                     <p class="status">Cancelled</p>
                 </div>
             </div>
-            <div class="order-card">
+            <div class="order-card" routerLink="/fullorderinfo">
                 <div class="order-card-img">
                     <img src="../../assets/images/pendingorder.png">
                 </div>

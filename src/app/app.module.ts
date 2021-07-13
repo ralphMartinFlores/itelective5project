@@ -17,6 +17,7 @@ import { UpdatenameComponent } from './updatename/updatename.component';
 import { UpdateaddressComponent } from './updateaddress/updateaddress.component';
 import { UpdatecontactComponent } from './updatecontact/updatecontact.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
     UpdatenameComponent,
     UpdateaddressComponent,
     UpdatecontactComponent,
-    UpdatepasswordComponent
+    UpdatepasswordComponent,
+    FullorderinfoComponent
   ],
   imports: [
     BrowserModule,
