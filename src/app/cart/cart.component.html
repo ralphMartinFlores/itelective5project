@@ -36,97 +36,27 @@
         </div>
 
         <div class="cart-container">
-            <div class="cart-item">
-                <div class="cart-item-img">
-                    <img src="../../assets/images/products.png">
-                </div>
-                <div class="cart-item-half">
-                    <div class="cart-item-name">
-                        <p>Sample Longer Product Name</p>
+            <div *ngFor="let cartItem of dt">
+                <div class="cart-item">
+                    <div class="cart-item-img">
+                        <img style="height: 150px; width: 150px;" src="{{ cartItem.product_image }}">
                     </div>
-                    <div class="cart-item-quantity">
-                        <p>Quantity:</p>
-                        <p>1</p>
-                    </div>
-                    <div class="cart-crement-buttons">
-                        <div class="cart-quantity-crement">
-                            <img class="cart-btn" src="../../assets/images/plus.png">
-                            <img class="cart-btn" src="../../assets/images/negative.png">
+                    <div class="cart-item-half">
+                        <div class="cart-item-name">
+                            <p>{{ cartItem.product_name }}</p>
                         </div>
-                        <div class="cart-quantity-remove">
-                            <img class="cart-btn" src="../../assets/images/trash.png">
+                        <div class="cart-item-quantity">
+                            <p>Quantity:</p>
+                            <p>{{ cartItem.cart_quantity }}</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cart-item">
-                <div class="cart-item-img">
-                    <img src="../../assets/images/products.png">
-                </div>
-                <div class="cart-item-half">
-                    <div class="cart-item-name">
-                        <p>Sample Longer Product Name</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <p>Quantity:</p>
-                        <p>1</p>
-                    </div>
-                    <div class="cart-crement-buttons">
-                        <div class="cart-quantity-crement">
-                            <img class="cart-btn" src="../../assets/images/plus.png">
-                            <img class="cart-btn" src="../../assets/images/negative.png">
-                        </div>
-                        <div class="cart-quantity-remove">
-                            <img class="cart-btn" src="../../assets/images/trash.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cart-item">
-                <div class="cart-item-img">
-                    <img src="../../assets/images/products.png">
-                </div>
-                <div class="cart-item-half">
-                    <div class="cart-item-name">
-                        <p>Sample Longer Product Name</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <p>Quantity:</p>
-                        <p>1</p>
-                    </div>
-                    <div class="cart-crement-buttons">
-                        <div class="cart-quantity-crement">
-                            <img class="cart-btn" src="../../assets/images/plus.png">
-                            <img class="cart-btn" src="../../assets/images/negative.png">
-                        </div>
-                        <div class="cart-quantity-remove">
-                            <img class="cart-btn" src="../../assets/images/trash.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cart-item">
-                <div class="cart-item-img">
-                    <img src="../../assets/images/products.png">
-                </div>
-                <div class="cart-item-half">
-                    <div class="cart-item-name">
-                        <p>Sample Longer Product Name</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <p>Quantity:</p>
-                        <p>1</p>
-                    </div>
-                    <div class="cart-crement-buttons">
-                        <div class="cart-quantity-crement">
-                            <img class="cart-btn" src="../../assets/images/plus.png">
-                            <img class="cart-btn" src="../../assets/images/negative.png">
-                        </div>
-                        <div class="cart-quantity-remove">
-                            <img class="cart-btn" src="../../assets/images/trash.png">
+                        <div class="cart-crement-buttons">
+                            <div class="cart-quantity-crement">
+                                <img (click)="addQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/plus.png">
+                                <img (click)="subtractQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/negative.png">
+                            </div>
+                            <div class="cart-quantity-remove">
+                                <img (click)="deleteProduct(cartItem.cart_id)" class="cart-btn" src="../../assets/images/trash.png">
+                            </div>
                         </div>
                     </div>
                 </div>

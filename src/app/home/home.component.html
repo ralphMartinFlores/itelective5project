@@ -11,13 +11,14 @@
     <div class="main-container">
 
         <div class="navbar">
+            <p style="visibility: hidden">Home</p>
             <a routerLink="/home">Home</a>
-            <a routerLink="/login">Login</a>
             <a routerLink="/profile">Profile</a>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
             <a routerLink="/cart">Cart</a>
             <a routerLink="/orders">Orders</a>
-            <a routerLink="/login">Logout</a>
+            <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+            <a *ngIf="loginState == false" routerLink="/login">Login</a>
         </div>
 
         <div class="header-text-image-container">
@@ -45,39 +46,39 @@
         <h1>Browse by Category</h1>
 
         <div class="categories-container">
-            <div class="category-card meat" routerLink="/category">
+            <div button (click)="category('Meat')" class="category-card meat">
                 <img src="../../assets/images/meat.png">
                 <p>Meat</p>
             </div>
-            <div class="category-card veggie">
+            <div button (click)="category('Vegetables')" class="category-card veggie">
                 <img src="../../assets/images/cabbage.png">
                 <p>Vegetables</p>
             </div>
-            <div class="category-card seafood">
+            <div button (click)="category('Seafood')" class="category-card seafood">
                 <img src="../../assets/images/shrimp.png">
                 <p>Seafood</p>
             </div>
-            <div class="category-card drinks">
+            <div button (click)="category('Beverages')" class="category-card drinks">
                 <img src="../../assets/images/drinks.png">
                 <p>Beverages</p>
             </div>
-            <div class="category-card canned">
+            <div button (click)="category('Canned')" class="category-card canned">
                 <img src="../../assets/images/canned-food.png">
                 <p>Canned</p>
             </div>
-            <div class="category-card dairy">
+            <div button (click)="category('Dairy')" class="category-card dairy">
                 <img src="../../assets/images/dairy.png">
                 <p>Dairy</p>
             </div>
-            <div class="category-card cleaners">
+            <div button (click)="category('Cleaners')" class="category-card cleaners">
                 <img src="../../assets/images/detergent.png">
                 <p>Cleaners</p>
             </div>
-            <div class="category-card fruits">
+            <div button (click)="category('Fruits')" class="category-card fruits">
                 <img src="../../assets/images/bananas.png">
                 <p>Fruits</p>
             </div>
-            <div class="category-card bread">
+            <div button (click)="category('Bread')" class="category-card bread">
                 <img src="../../assets/images/bread.png">
                 <p>Bread</p>
             </div>

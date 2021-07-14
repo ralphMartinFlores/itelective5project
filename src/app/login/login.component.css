@@ -8,16 +8,19 @@
 }
 
 .login-container img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     mix-blend-mode: multiply;
 }
 
 .login-form {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     flex-grow: 1;
+    flex: 1;
 }
 
 .intro-message {

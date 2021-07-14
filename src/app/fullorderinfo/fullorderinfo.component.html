@@ -21,11 +21,11 @@
 
         <div class="header-text-image-container">
             <div class="header-text">
-                <h1>Order #1</h1>
+                <h1>Order # {{ order_info.order_id }}</h1>
                 <h2>See your full order details here.</h2>
 
                 <div class="checkout-btn">
-                    <p>Cancel Order</p>
+                    <p *ngIf="order_info.order_status == 1">Cancel Order</p>
                 </div>
             </div>
             <div class="header-image-container">
@@ -40,7 +40,7 @@
                 <img src="../../assets/images/location.png">
                 <div class="orderinfo-text">
                     <p class="header">Delivery Address</p>
-                    <p>1651 Waterdam Road Balic-Balic Sta. Rita Olongapo City Zambales</p>
+                    <p *ngFor="let details of order_details">{{ details.acc_no }} {{ details.acc_street }} {{ details.acc_barangay }}, {{ details.acc_city }} {{ details.acc_province }}</p>
                 </div>
             </div>
 
@@ -48,17 +48,9 @@
                 <img src="../../assets/images/products.png">
                 <div class="orderinfo-text">
                     <p class="header">Order Items</p>
-                    <div class="order-items">
-                        <p>Safeguard Pure White Liquid Hand Soap Refill 200ML</p>
-                        <p>₱ 69 x 1</p>
-                    </div>
-                    <div class="order-items">
-                        <p>Safeguard Pure White Liquid Hand Soap Refill 200ML</p>
-                        <p>₱ 69 x 1</p>
-                    </div>
-                    <div class="order-items">
-                        <p>Safeguard Pure White Liquid Hand Soap Refill 200ML</p>
-                        <p>₱ 69 x 1</p>
+                    <div *ngFor="let item of order_item" class="order-items">
+                        <p>{{ item.product_name }}</p>
+                        <p>₱ {{ item.product_price }} x {{ item.item_quantity }}</p>
                     </div>
                 </div>
             </div>
@@ -69,15 +61,15 @@
                     <p class="header">Payment Information</p>
                     <div class="payment-items">
                         <p>SubTotal</p>
-                        <p>₱ 172</p>  
+                        <p>₱ {{ dt[0].order_total }}</p>  
                     </div>
                     <div class="payment-items">
                         <p>Delivery Fee</p>
-                        <p>₱ 100</p>
+                        <p>₱ {{ dt[0].order_shipping }}</p>
                     </div>
                     <div class="payment-items">
                         <p>Total Price</p>
-                        <p>₱ 272</p>
+                        <p>₱ {{ dt[0].order_grandtotal }}</p>
                     </div>
                 </div>
             </div>
@@ -94,7 +86,7 @@
                 <img src="../../assets/images/schedule.png">
                 <p class="header">Order Date & Time</p>
                 <div class="centered-orderinfo-text">
-                    <p>June 1, 2021 10:34 PM</p>
+                    <p>{{ dt[0].created_at | date:"MMMM d, y h:mm a" }}</p>
                 </div>
             </div>
 

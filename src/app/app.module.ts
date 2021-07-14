@@ -19,6 +19,9 @@ import { UpdatecontactComponent } from './updatecontact/updatecontact.component'
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +43,14 @@ import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

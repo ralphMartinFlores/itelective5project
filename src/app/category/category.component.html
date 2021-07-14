@@ -11,7 +11,7 @@
     <div class="main-container">
 
         <div class="navbar">
-            <a routerLink="/home">Home</a>
+            <a routerLink="/">Home</a>
             <a routerLink="/login">Login</a>
             <a routerLink="/profile">Profile</a>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
@@ -47,7 +47,14 @@
         <h1>Products</h1>
 
         <div class="products-container">
-            <div class="product">
+            <div  *ngFor="let product of dt">
+                <div class="product">
+                    <img style="height: 200px; width: 200px" src="{{ product.product_image }}">
+                    <p>{{ product.product_name }}</p>
+                    <img (click)="addToCart(product.product_id)" class="addcart-btn" src="../../assets/images/plus.png">
+                </div>
+            </div>
+            <!-- <div class="product">
                 <img src="../../assets/images/products.png">
                 <p>Sample Product Name</p>
                 <img class="addcart-btn" src="../../assets/images/plus.png">
@@ -66,12 +73,7 @@
                 <img src="../../assets/images/products.png">
                 <p>Sample Product Name</p>
                 <img class="addcart-btn" src="../../assets/images/plus.png">
-            </div>
-            <div class="product">
-                <img src="../../assets/images/products.png">
-                <p>Sample Product Name</p>
-                <img class="addcart-btn" src="../../assets/images/plus.png">
-            </div>
+            </div> -->
         </div>
     
     </div>
