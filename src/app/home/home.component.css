@@ -26,6 +26,29 @@ a {
     padding: 1rem;
 }
 
+.navbar-firsthalf, .navbar-secondhalf {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.navbar-firsthalf, .navbar-secondhalf{
+    flex: 1;
+}
+
+/* .navbar-logo {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.navbar-logo img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
 .navbar a:hover {
     background-color: forestgreen;
     color: white;
@@ -64,6 +87,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .checkout-btn p {
@@ -99,7 +123,9 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
 }
+
 
 .category-card, .store-card p {
     padding-bottom: 0;
@@ -142,40 +168,80 @@ a {
     background-color: rgb(252, 83, 98, 0.4);
 }
 
+.meat:hover {
+    background-color: rgb(252, 83, 98, 0.6);
+}
+
 .veggie {
     background-color: rgb(76, 188, 100, 0.5);
+}
+
+.veggie:hover {
+    background-color: rgb(76, 188, 100, 0.7);
 }
 
 .seafood {
     background-color: rgb(228, 121, 68, 0.4);
 }
 
+.seafood:hover {
+    background-color: rgb(228, 121, 68, 0.6);
+}
+
 .personalcare {
     background-color: rgb(92, 188, 243, 0.4);
+}
+
+.personalcare:hover {
+    background-color: rgb(92, 188, 243, 0.6);
 }
 
 .drinks {
     background-color: rgb(52, 92, 124, 0.4);
 }
 
+.drinks:hover {
+    background-color: rgb(52, 92, 124, 0.6);
+}
+
 .canned {
     background-color: rgb(130, 141, 157, 0.3);
+}
+
+.canned:hover {
+    background-color: rgb(130, 141, 157, 0.5);
 }
 
 .dairy {
     background-color: rgb(57, 145, 207, 0.4);
 }
 
+.dairy:hover {
+    background-color: rgb(57, 145, 207, 0.6);
+}
+
 .cleaners {
     background-color: rgb(228, 60, 124, 0.3);
+}
+
+.cleaners:hover {
+    background-color: rgb(228, 60, 124, 0.5);
 }
 
 .fruits {
     background-color: rgb(224, 198, 70, 0.4);
 }
 
+.fruits:hover {
+    background-color: rgb(224, 198, 70, 0.6);
+}
+
 .bread {
     background-color: rgb(208, 162, 135, 0.6);
+}
+
+.bread:hover {
+    background-color: rgb(208, 162, 135, 0.7);
 }
 
 @media (max-width: 46.875rem) { 

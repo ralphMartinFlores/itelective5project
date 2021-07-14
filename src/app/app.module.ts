@@ -18,6 +18,7 @@ import { UpdateaddressComponent } from './updateaddress/updateaddress.component'
 import { UpdatecontactComponent } from './updatecontact/updatecontact.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
