@@ -19,6 +19,11 @@ import { UpdatecontactComponent } from './updatecontact/updatecontact.component'
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -42,9 +47,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,21 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="main-container">
 
+    <div class="colored-bar">
         <div class="navbar">
-            <a routerLink="/home">Home</a>
-            <a routerLink="/login">Login</a>
-            <a routerLink="/profile">Profile</a>
+            <div class="navbar-firsthalf">
+                <a routerLink="/">Home</a>
+                <a routerLink="/profile">Profile</a>
+                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+            </div>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a routerLink="/cart">Cart</a>
-            <a routerLink="/orders">Orders</a>
-            <a routerLink="/login">Logout</a>
+            <div class="navbar-secondhalf">
+                <a routerLink="/cart">Cart</a>
+                <a routerLink="/orders">Orders</a>
+                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+            </div>
         </div>
+    </div>
+
+    <div class="main-container" *ngFor="let data of dt">
 
         <div class="header-text-image-container">
             <div class="header-text">
-                <h1>Juan Dela Cruz</h1>
+                <h1>{{ data.acc_fname }} <span *ngIf="data.acc_mname == ''"></span> <span *ngIf="data.acc_mname != ''">{{ data.acc_mname[0] }}.</span> {{ data.acc_lname}}</h1>
                 <h2>Take a look at your profile details here.</h2>
 
                 <div class="checkout-btn" routerLink="/chooseupdate">
@@ -29,7 +36,8 @@
                 </div>
             </div>
             <div class="header-image-container">
-                <img class="header-image" src="../../assets/images/maleavatar.png">
+                <img *ngIf="(data.acc_gender == 1)" class="header-image" src="../../assets/images/maleavatar.png">
+                <img *ngIf="(data.acc_gender == 2)"class="header-image" src="../../assets/images/femaleavatar.png">
             </div>
         </div>
 
@@ -41,8 +49,8 @@
                     <img src="../../assets/images/location.png">
                 </div>
                 <div class="user-info-text">
-                    <p>Address</p>
-                    <p class="user-detail">1666 Firedam Road Return-return St. Rich Ogap City</p>
+                    <p class="header">Address</p>
+                    <p class="user-detail">{{ data.acc_no }} {{ data.acc_street }} {{ data.acc_barangay }} {{ data.acc_city }}, {{ data.acc_province }}</p>
                 </div>
             </div>
 
@@ -51,8 +59,8 @@
                     <img src="../../assets/images/telephone.png">
                 </div>
                 <div class="user-info-text">
-                    <p>Contact Number</p>
-                    <p class="user-detail">09999999999</p>
+                    <p class="header">Contact Number</p>
+                    <p class="user-detail">{{ data.acc_mobile }}</p>
                 </div>
             </div>
 
@@ -61,8 +69,8 @@
                     <img src="../../assets/images/email.png">
                 </div>
                 <div class="user-info-text">
-                    <p>Email Address</p>
-                    <p class="user-detail">201000000@gordoncollege.edu.ph</p>
+                    <p class="header">Email Address</p>
+                    <p class="user-detail">{{ data.acc_email }}</p>
                 </div>
             </div>
 
@@ -71,8 +79,8 @@
                     <img src="../../assets/images/user.png">
                 </div>
                 <div class="user-info-text">
-                    <p>Username</p>
-                    <p class="user-detail">username</p>
+                    <p class="header">Username</p>
+                    <p class="user-detail">{{ data.acc_username }}</p>
                 </div>
             </div>
 
@@ -81,8 +89,9 @@
                     <img src="../../assets/images/gender.png">
                 </div>
                 <div class="user-info-text">
-                    <p>Gender</p>
-                    <p class="user-detail">Male</p>
+                    <p class="header">Gender</p>
+                    <p class="user-detail" *ngIf="(data.acc_gender == 1)">Male</p>
+                    <p class="user-detail" *ngIf="(data.acc_gender == 2)">Female</p>
                 </div>
             </div>
         </div>

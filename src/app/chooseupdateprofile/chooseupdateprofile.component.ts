@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-chooseupdateprofile',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooseupdateprofileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public user: UserService) { }
+  loginState = this.user.isLoggedIn();
 
   ngOnInit(): void {
   }

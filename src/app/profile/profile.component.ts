@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public user: UserService, private ds: DataService) { }
+
+  loginState = this.user.isLoggedIn();
 
   ngOnInit(): void {
+    this.getUserProfile();
+  }
+
+  dt: any[] = [];
+  getUserProfile() {
+    let pload  = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
+    this.ds.sendApiRequest("accounts/" + pload.id, null).subscribe((data: { payload: any[]; }) => {
+      this.dt = data.payload;
+      console.log(this.dt)
+    });
   }
 
 }

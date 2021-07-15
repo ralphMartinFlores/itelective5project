@@ -7,18 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="main-container">
 
+    <div class="colored-bar">
         <div class="navbar">
-            <a routerLink="/home">Home</a>
-            <a routerLink="/login">Login</a>
-            <a routerLink="/profile">Profile</a>
+            <div class="navbar-firsthalf">
+                <a routerLink="/">Home</a>
+                <a routerLink="/profile">Profile</a>
+                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+            </div>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a routerLink="/cart">Cart</a>
-            <a routerLink="/orders">Orders</a>
-            <a routerLink="/login">Logout</a>
+            <div class="navbar-secondhalf">
+                <a routerLink="/cart">Cart</a>
+                <a routerLink="/orders">Orders</a>
+                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+            </div>
         </div>
+    </div>
 
+    <div class="main-container">
+        
         <div class="header-text-image-container">
             <div class="header-text">
                 <h1>Update Name</h1>

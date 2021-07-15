@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-allstores',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllstoresComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ds: DataService, public user: UserService) { }
+
+  loginState = this.user.isLoggedIn();
 
   ngOnInit(): void {
   }

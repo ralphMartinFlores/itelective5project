@@ -7,25 +7,31 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div class="colored-bar">
+        <div class="navbar">
+            <div class="navbar-firsthalf">
+                <a routerLink="/">Home</a>
+                <a routerLink="/profile">Profile</a>
+                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+            </div>
+            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
+            <div class="navbar-secondhalf">
+                <a routerLink="/cart">Cart</a>
+                <a routerLink="/orders">Orders</a>
+                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+            </div>
+        </div>
+    </div>
     
     <div class="main-container">
-
-        <div class="navbar">
-            <a routerLink="/home">Home</a>
-            <a routerLink="/login">Login</a>
-            <a routerLink="/profile">Profile</a>
-            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a routerLink="/cart">Cart</a>
-            <a routerLink="/orders">Orders</a>
-            <a routerLink="/login">Logout</a>
-        </div>
 
         <div class="header-text-image-container">
             <div class="header-text">
                 <h1>Your Receipt</h1>
                 <h2>A summary of your order appears here.</h2>
 
-                <div class="checkout-btn" routerLink="/orders">
+                <div (click)="checkOut()" class="checkout-btn">
                     <p>Place Order</p>
                 </div>
 
@@ -36,48 +42,34 @@
         </div>
 
         <div class="order-info-container">
-            <div class="order-info-card deliveryinfo">
+            <div class="order-info-card deliveryinfo" *ngFor="let data of dt">
                 <p class="header">Delivery Information</p>
-                <p>Receiver: Juan Dela Cruz</p>
-                <p>Address: 1666 Firedam Road Return-return St. Rich Ogap City</p>
-                <p>Contact Number: 099999999</p>
+                <p>Receiver: {{ data.acc_fname }} {{ data.acc_mname }} {{ data.acc_lname }}</p>
+                <p>Address: {{ data.acc_no }} {{ data.acc_street }} {{ data.acc_barangay }}, {{ data.acc_city }} {{ data.acc_province }}</p>
+                <p>Contact Number: {{ data.acc_mobile }}</p>
             </div>
 
             <div class="order-info-card">
                 <p class="header">Mode of Payment</p>
                 <div class="payment-radio">
                     <div class="md-radio md-radio-inline">
-                        <input id="cod" type="radio" name="paymentradio">
+                        <input id="cod" type="radio" name="paymentradio" disabled checked>
                         <label for="cod">Cash on Delivery</label>
                     </div>
-                    <div class="md-radio md-radio-inline">
+                    <!-- <div class="md-radio md-radio-inline">
                         <input id="gcash" type="radio" name="paymentradio">
                         <label for="gcash">Gcash</label>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
+            <p class="info-message">As of now, Go-cery only has Cash on Delivery as its mode of payment, other modes are expected to be implemented in the future, Stay tuned!</p>
+
             <div class="order-info-card">
                 <p class="header">Order Items</p>
-                <div class="order-items">
-                    <p>Sample Longer Product Name</p>
-                    <p>₱ 00.00 x 6</p>
-                </div>
-                <div class="order-items">
-                    <p>Sample Longer Product Name</p>
-                    <p>₱ 00.00 x 6</p>
-                </div>
-                <div class="order-items">
-                    <p>Sample Longer Product Name</p>
-                    <p>₱ 00.00 x 6</p>
-                </div>
-                <div class="order-items">
-                    <p>Sample Longer Product Name</p>
-                    <p>₱ 00.00 x 6</p>
-                </div>
-                <div class="order-items">
-                    <p>Sample Longer Product Name</p>
-                    <p>₱ 00.00 x 6</p>
+                <div class="order-items" *ngFor="let item of cart">
+                    <p>{{item.product_name}}</p>
+                    <p>₱ {{item.product_price}} x {{item.cart_quantity}}</p>
                 </div>
             </div>
 
@@ -85,15 +77,15 @@
                 <p class="header">Payment Information</p>
                 <div class="order-items">
                     <p>SubTotal:</p>
-                    <p>₱ 00.00</p>
+                    <p>₱ {{order_info.order_total}}</p>
                 </div>
                 <div class="order-items">
                     <p>Delivery Fee:</p>
-                    <p>₱ 00.00</p>
+                    <p>₱ {{order_info.order_shipping}}</p>
                 </div>
                 <div class="order-items">
                     <p>Total Price:</p>
-                    <p>₱ 00.00</p>
+                    <p>₱ {{order_info.order_grandtotal}}</p>
                 </div>
             </div>
 

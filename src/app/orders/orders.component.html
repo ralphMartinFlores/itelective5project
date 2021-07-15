@@ -7,18 +7,24 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div class="colored-bar">
+        <div class="navbar">
+            <div class="navbar-firsthalf">
+                <a routerLink="/">Home</a>
+                <a routerLink="/profile">Profile</a>
+                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+            </div>
+            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
+            <div class="navbar-secondhalf">
+                <a routerLink="/cart">Cart</a>
+                <a routerLink="/orders">Orders</a>
+                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+            </div>
+        </div>
+    </div>
     
     <div class="main-container">
-
-        <div class="navbar">
-            <a routerLink="/home">Home</a>
-            <a routerLink="/login">Login</a>
-            <a routerLink="/profile">Profile</a>
-            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
-            <a routerLink="/cart">Cart</a>
-            <a routerLink="/orders">Orders</a>
-            <a routerLink="/login">Logout</a>
-        </div>
 
         <div class="header-text-image-container">
             <div class="header-text">
@@ -31,44 +37,23 @@
         </div>
 
         <div class="orders-container">
-            <div class="order-card" routerLink="/fullorderinfo">
+
+            <div class="emptymessage-container" *ngIf = "dt.length === 0">
+                <p class="header">No orders yet.</p>
+                <p>Items that you checkout for purchase will appear here.</p>
+            </div>
+
+            <div *ngFor="let order of dt" class="order-card" (click)="viewFullDetails(order)">
                 <div class="order-card-img">
                     <img src="../../assets/images/tbd.png">
                 </div>
                 <div class="order-card-text">
-                    <p>Order #1</p>
-                    <p>July 8, 2021 10:41:03 AM</p>
-                    <p class="status">To Be Delivered</p>
-                </div>
-            </div>
-            <div class="order-card" routerLink="/fullorderinfo">
-                <div class="order-card-img">
-                    <img src="../../assets/images/checklist.png">
-                </div>
-                <div class="order-card-text">
-                    <p>Order #1</p>
-                    <p>July 8, 2021 10:41:03 AM</p>
-                    <p class="status">Delivered</p>
-                </div>
-            </div>
-            <div class="order-card" routerLink="/fullorderinfo">
-                <div class="order-card-img">
-                    <img src="../../assets/images/cancelledorder.png">
-                </div>
-                <div class="order-card-text">
-                    <p>Order #1</p>
-                    <p>July 8, 2021 10:41:03 AM</p>
-                    <p class="status">Cancelled</p>
-                </div>
-            </div>
-            <div class="order-card" routerLink="/fullorderinfo">
-                <div class="order-card-img">
-                    <img src="../../assets/images/pendingorder.png">
-                </div>
-                <div class="order-card-text">
-                    <p>Order #1</p>
-                    <p>July 8, 2021 10:41:03 AM</p>
-                    <p class="status">Pending</p>
+                    <p>Order #{{ order.order_id }}</p>
+                    <p>{{ order.created_at | date:"MMMM d, y h:mm a" }}</p>
+                    <p *ngIf="order.order_status == 1" class="status pending">Pending</p>
+                    <p *ngIf="order.order_status == 2" class="status tbd">To be Delivered</p>
+                    <p *ngIf="order.order_status == 3" class="status delivered">Delivered</p>
+                    <p *ngIf="order.order_status == 0" class="status cancelled">Cancelled</p>
                 </div>
             </div>
         </div>

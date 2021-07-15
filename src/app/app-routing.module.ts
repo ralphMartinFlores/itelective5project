@@ -18,7 +18,7 @@ import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component'
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'cart', component: CartComponent },
   { path: 'receipt', component: ReceiptComponent },

@@ -14,9 +14,9 @@
                 <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
                 <p class="intro-message-header">Welcome Shoppers!</p>
                 <p class="intro-message">Your convenience starts here.</p>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <div class="login-btn">
+                <input [(ngModel)]="acc_username" type="text" placeholder="Username" required>
+                <input [(ngModel)]="acc_password" type="password" placeholder="Password" required>
+                <div (click)="login()" class="login-btn">
                     <p>Log in</p>
                 </div>
                 <div class="otherlogin-options">
