@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-category',
@@ -11,12 +11,10 @@ import Swal from 'sweetalert2'
 export class CategoryComponent implements OnInit {
 
   term: any;
-
   catname: string | null = sessionStorage.getItem("Category")
   constructor(private ds: DataService, public user: UserService) { }
 
   loginState = this.user.isLoggedIn();
-
   ngOnInit(): void {
     this.categoryProducts();
     this.getCart();

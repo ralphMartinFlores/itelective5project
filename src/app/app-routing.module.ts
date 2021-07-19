@@ -15,7 +15,7 @@ import { UpdateaddressComponent } from './updateaddress/updateaddress.component'
 import { UpdatecontactComponent } from './updatecontact/updatecontact.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component';
-
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'updatecontact', component: UpdatecontactComponent },
   { path: 'updatepassword', component: UpdatepasswordComponent },
   { path: 'fullorderinfo', component: FullorderinfoComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

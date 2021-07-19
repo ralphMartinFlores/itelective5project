@@ -23,6 +23,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UpdateaddressComponent,
     UpdatecontactComponent,
     UpdatepasswordComponent,
-    FullorderinfoComponent
+    FullorderinfoComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule
   ],
   providers: [
     HttpClient
