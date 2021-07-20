@@ -24,6 +24,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { FullproductinfoComponent } from './fullproductinfo/fullproductinfo.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { RegisterComponent } from './register/register.component';
     UpdatecontactComponent,
     UpdatepasswordComponent,
     FullorderinfoComponent,
-    RegisterComponent
+    RegisterComponent,
+    FullproductinfoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,112 @@
+a {
+    text-decoration: none;
+}
+
+.main-container {
+    max-width: 56.25rem;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 56.25rem;
+    margin: 0 auto;
+    padding: 1rem;
+    /* border: 1px solid red; */
+}
+
+.colored-bar {
+    background-color: rgb(34, 139, 34, 0.3);
+    width: 100%;
+}
+
+.navbar a {
+    color: dimgray;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.25rem;
+}
+
+.navbar-firsthalf, .navbar-secondhalf {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.navbar-firsthalf, .navbar-secondhalf{
+    flex: 1;
+}
+
+.navbar a:hover {
+    background-color: forestgreen;
+    color: white;
+}
+
+.header-text-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    gap: 1rem;
+    flex: 1;
+}
+
+.header-text {
+    flex: 1;
+}
+
+.checkout-btn {
+    border-radius: 3rem;
+    background-color: forestgreen;
+    color: white;
+    display: flex;
+    gap: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: green;
+}
+
+.checkout-btn p {
+    font-size: 1.25rem;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.header-image-container img {
+    width: 30rem;
+    height: auto;
+    mix-blend-mode: multiply;
+}
+
+@media (max-width: 46.875rem) { 
+    .navbar, .header-text-image-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-text {
+        order: 1;
+    }
+
+    .header-image-container img {
+        order: 2;
+        width: 100%;
+        height: auto;
+    }
+
+    .checkout-btn {
+        order: 3;
+    }
+  }

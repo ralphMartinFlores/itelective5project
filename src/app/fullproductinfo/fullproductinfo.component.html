@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="colored-bar">
+        <div class="navbar">
+            <div class="navbar-firsthalf">
+                <a routerLink="/">Home</a>
+                <a routerLink="/profile">Profile</a>
+                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+            </div>
+            <img routerLink="/" src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
+            <div class="navbar-secondhalf">
+                <a routerLink="/cart">Cart</a>
+                <a routerLink="/orders">Orders</a>
+                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="header-text-image-container">
+            <div class="header-text">
+                <h1>Colgate Family Toothpaste Triple Action Original Mint 175ML Twin Pack</h1>
+
+                <div class="checkout-btn">
+                    <p>Add to Cart</p>
+                </div>
+
+            </div>
+            <div class="header-image-container">
+                <img class="header-image" src="../../assets/images/tempfeatured-product.png">
+            </div>
+        </div>
+
+        <h1>Description</h1>
+
+        <div class="product-desc">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est deserunt porro illo molestias eos, officiis possimus incidunt similique magnam temporibus libero quos eligendi consequatur quod delectus, maxime cumque a consectetur!</p>
+        </div>
+    </div>
+
+</body>
+</html>
