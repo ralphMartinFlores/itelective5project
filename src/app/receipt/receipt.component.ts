@@ -131,7 +131,7 @@ export class ReceiptComponent implements OnInit {
         confirmButtonColor: '#228B22'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.router.navigate(['/myorders']);
+          this.router.navigate(['/cart']);
         }
       })
     });

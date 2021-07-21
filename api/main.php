@@ -25,11 +25,27 @@
 					}
 				break;
 
+				case 'stores':
+					if(count($req)>1){
+						echo json_encode($gm->exec_query($req[0], $req[1]),JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($gm->exec_query($req[0], null),JSON_PRETTY_PRINT);
+					}
+				break;
+
 				case 'products':
 					if(count($req)>1){
 						echo json_encode($gm->exec_query($req[0], $req[1]),JSON_PRETTY_PRINT);
 					} else {
 						echo json_encode($gm->exec_query($req[0], null),JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'storeProducts':
+					if(count($req)>1){
+						echo json_encode($post->storeProducts('products', $req[1]),JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($post->storeProducts('products', null),JSON_PRETTY_PRINT);
 					}
 				break;
 

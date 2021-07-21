@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -12,7 +13,7 @@ export class CategoryComponent implements OnInit {
 
   term: any;
   catname: string | null = sessionStorage.getItem("Category")
-  constructor(private ds: DataService, public user: UserService) { }
+  constructor(private ds: DataService, public user: UserService, private router: Router) { }
 
   loginState = this.user.isLoggedIn();
   ngOnInit(): void {
@@ -64,31 +65,33 @@ export class CategoryComponent implements OnInit {
       });
       console.log(this.cart_content.length)
     }else{
-      for(var i = 0; i < this.cart_content.length; i++) {
-        
-        console.log(this.cart_content[i].product_id, id)
-        if(this.cart_content[i].product_id == id) {
+      if (this.cart_content.some((t: { product_id: any; })=>t.product_id == id) == true) {
+        this.getCart();
+        Swal.fire({
+          title: 'Oops!',
+          text: 'Product is already in your cart.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'crimson'
+        })
+      } else {
+        this.ds.sendApiRequest("addToCart/", this.cartContent).subscribe((data: { payload: any[]; }) => {
+          this.getCart();
           Swal.fire({
-            title: 'Oops!',
-            text: 'Product is already in your cart.',
-            icon: 'error',
+            title: 'Success!',
+            text: 'Product added to your cart.',
+            icon: 'success',
             confirmButtonText: 'OK',
-            confirmButtonColor: 'crimson'
+            confirmButtonColor: '#228B22'
           })
-        } else {
-          this.ds.sendApiRequest("addToCart/", this.cartContent).subscribe((data: { payload: any[]; }) => {
-            Swal.fire({
-              title: 'Success!',
-              text: 'Product added to your cart.',
-              icon: 'success',
-              confirmButtonText: 'OK',
-              confirmButtonColor: '#228B22'
-            })
-          });
-        }
-        break;
+        });
       }
     }
+  }
+
+  viewProduct(product_id: any) {
+    window.sessionStorage.setItem(btoa('product_id'), btoa(product_id))
+    this.router.navigate(['/fullproductinfo']);
   }
 
 }

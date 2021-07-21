@@ -82,7 +82,7 @@ export class CartComponent {
   checkOut(){
     if(this.dt != ''){
       console.log(this.dt)
-      this.router.navigate(['/checkout']);
+      this.router.navigate(['/receipt']);
     }
     else {
       Swal.fire({

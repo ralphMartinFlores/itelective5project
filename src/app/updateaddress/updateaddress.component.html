@@ -11,15 +11,15 @@
     <div class="colored-bar">
         <div class="navbar">
             <div class="navbar-firsthalf">
-                <a routerLink="/">Home</a>
+                <a routerLink="/home">Home</a>
                 <a routerLink="/profile">Profile</a>
-                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+                <a *ngIf="loginState == false" routerLink="/">Login</a>
             </div>
-            <img routerLink="/" src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
+            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/home">
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+                <a *ngIf="loginState == true" routerLink="/">Logout</a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                 <h1>Update Address</h1>
                 <h2>Moved out to a new location? Apply changes to your current address here.</h2>
 
-                <div class="checkout-btn">
+                <div (click)="submitForm()" class="checkout-btn">
                     <p>Save Changes</p>
                 </div>
             </div>
@@ -43,28 +43,31 @@
         <h1>Address Information</h1>
 
         <div class="input-container">
-            <input type="text" placeholder="House Number">
-            <input type="text" placeholder="Street">
-            <select name="cars" id="cars">
-                <option value="Asinan">Asinan</option>
-                <option value="Banicain">Banicain</option>
-                <option value="Barretto">Barretto</option>
-                <option value="East Bajac-Bajac">East Bajac-Bajac</option>
-                <option value=">East Tapinac">East Tapinac</option>
-                <option value="Gordon Heights">Gordon Heights</option>
-                <option value="Kalaklan">Kalaklan</option>
-                <option value="Mabayuan">Mabayuan</option>
-                <option value="New CabalanN">New Cabalan</option>
-                <option value="New Ilalim">New Ilalim</option>
-                <option value="New Kababae">New Kababae</option>
-                <option value="Old Cabalan">Old Cabalan</option>
-                <option value="Pag-asa">Pag-asa</option>
-                <option value="Santa Rita">Santa Rita</option>
-                <option value="West Bajac-Bajac">West Bajac-Bajac</option>
-                <option value="West Tapinac">West Tapinac</option>
-              </select>
-            <input type="text" placeholder="City">
-            <input type="text" placeholder="Province">
+            <form [formGroup]="registrationForm" novalidate>
+                <input formControlName="acc_no" [(ngModel)]="acc_no" type="text" placeholder="House Number">
+                <input formControlName="acc_street" [(ngModel)]="acc_street" type="text" placeholder="Street">
+                <select formControlName="acc_barangay" [(ngModel)]="acc_barangay" name="cars" id="cars">
+                    <option value="Barangay">Select Barangay</option>
+                    <option value="Asinan">Asinan</option>
+                    <option value="Banicain">Banicain</option>
+                    <option value="Barretto">Barretto</option>
+                    <option value="East Bajac-Bajac">East Bajac-Bajac</option>
+                    <option value=">East Tapinac">East Tapinac</option>
+                    <option value="Gordon Heights">Gordon Heights</option>
+                    <option value="Kalaklan">Kalaklan</option>
+                    <option value="Mabayuan">Mabayuan</option>
+                    <option value="New CabalanN">New Cabalan</option>
+                    <option value="New Ilalim">New Ilalim</option>
+                    <option value="New Kababae">New Kababae</option>
+                    <option value="Old Cabalan">Old Cabalan</option>
+                    <option value="Pag-asa">Pag-asa</option>
+                    <option value="Santa Rita">Santa Rita</option>
+                    <option value="West Bajac-Bajac">West Bajac-Bajac</option>
+                    <option value="West Tapinac">West Tapinac</option>
+                </select>
+                <input formControlName="acc_city" [(ngModel)]="acc_city" type="text" placeholder="City">
+                <input formControlName="acc_province" [(ngModel)]="acc_province" type="text" placeholder="Province">
+            </form>
         </div>
 
 

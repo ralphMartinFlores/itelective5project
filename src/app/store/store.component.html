@@ -11,15 +11,15 @@
     <div class="colored-bar">
         <div class="navbar">
             <div class="navbar-firsthalf">
-                <a routerLink="/">Home</a>
+                <a routerLink="/home">Home</a>
                 <a routerLink="/profile">Profile</a>
-                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+                <a *ngIf="loginState == false" routerLink="/">Login</a>
             </div>
-            <img routerLink="/" src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
+            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/home">
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+                <a *ngIf="loginState == true" routerLink="/">Logout</a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                 <h1>Sample Store Name</h1>
                 <h2>Find all your items available at Sample Store Name here.</h2>
 
-                <input type="text" placeholder="Search for a product here...">
+                <input [(ngModel)]="term" type="text" placeholder="Search for a product here...">
                 <!-- <div class="featured-product">
                     <img class="featured-product-image" src="../../assets/images/tempfeatured-product.png">
                     <div class="featured-product-text">
@@ -53,30 +53,12 @@
         <h1>Products</h1>
 
         <div class="products-container">
-            <div class="product">
-                <img src="../../assets/images/products.png">
-                <p>Sample Product Name</p>
-                <img class="addcart-btn" src="../../assets/images/plus.png">
-            </div>
-            <div class="product">
-                <img src="../../assets/images/products.png">
-                <p>Sample Product Name</p>
-                <img class="addcart-btn" src="../../assets/images/plus.png">
-            </div>
-            <div class="product">
-                <img src="../../assets/images/products.png">
-                <p>Sample Product Name</p>
-                <img class="addcart-btn" src="../../assets/images/plus.png">
-            </div>
-            <div class="product">
-                <img src="../../assets/images/products.png">
-                <p>Sample Product Name</p>
-                <img class="addcart-btn" src="../../assets/images/plus.png">
-            </div>
-            <div class="product">
-                <img src="../../assets/images/products.png">
-                <p>Sample Product Name</p>
-                <img class="addcart-btn" src="../../assets/images/plus.png">
+            <div class="product100" *ngFor="let product of dt | filter:term">
+                <div class="product">
+                    <img (click)="viewProduct(product.product_id)" style="max-width: 9.37rem; height: 10rem;" src="{{ product.product_image }}">
+                    <p (click)="viewProduct(product.product_id)">{{ product.product_name }}</p>
+                    <img (click)="addToCart(product.product_id)" class="addcart-btn" src="../../assets/images/plus.png">
+                </div>
             </div>
         </div>
         

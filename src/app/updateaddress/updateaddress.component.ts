@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,11 +11,48 @@ import { UserService } from '../services/user.service';
 })
 export class UpdateaddressComponent implements OnInit {
 
-  constructor(public user: UserService) { }
+  registrationForm!: FormGroup;
+  isSubmitted = false;
+
+  constructor(public formBuilder: FormBuilder, private ds: DataService, private router: Router, private user: UserService) { }
 
   loginState = this.user.isLoggedIn();
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.registrationForm = this.formBuilder.group({
+      acc_no: ['', [Validators.required]],
+      acc_street: ['', [Validators.required]],
+      acc_barangay: ['', [Validators.required]],
+      acc_city: [''],
+      acc_province: ['']
+    })
+  }
+
+  get errorControl() {
+    return this.registrationForm.controls;
+  }
+
+  acc_no: any;
+  acc_street: any;
+  acc_barangay: any = 'Barangay';
+  acc_city: any = 'Olongapo City';
+  acc_province: any = 'Zambales';
+
+  submitForm() {
+    this.isSubmitted = true;
+    if (!this.registrationForm.valid) {
+      console.log('Please provide all the required values!')
+      this.isSubmitted = false;
+    } else {
+      console.log(this.registrationForm.value)
+      let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
+      this.ds.sendApiRequest("updateProfile/" + pload.id, this.registrationForm.value).subscribe((data: { payload: any[]; }) => {
+        this.router.navigate(['/profile']);
+        // this.successToast("Address Updated Successfully.");
+      }, (err: any) => {
+        // this.errorToast("Address was not updated.");
+      });
+    }
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 
@@ -9,11 +10,24 @@ import { UserService } from '../services/user.service';
 })
 export class AllstoresComponent implements OnInit {
 
-  constructor(private ds: DataService, public user: UserService) { }
+  constructor(private ds: DataService, public user: UserService, private router: Router) { }
 
   loginState = this.user.isLoggedIn();
-
+  filter: any;
+  
   ngOnInit(): void {
+    this.getStores();
   }
 
+  stores: any[] = [];
+  getStores() {
+    this.ds.sendApiRequest("stores/", null).subscribe((data: { payload: any[]; }) => {
+      this.stores = data.payload;
+    });
+  }
+
+  gotoStore(store: string) {
+    window.sessionStorage.setItem(btoa('store_id'), btoa(store))
+    this.router.navigate(['/store']);
+  }
 }

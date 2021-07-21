@@ -11,15 +11,15 @@
     <div class="colored-bar">
         <div class="navbar">
             <div class="navbar-firsthalf">
-                <a routerLink="/">Home</a>
+                <a routerLink="/home">Home</a>
                 <a routerLink="/profile">Profile</a>
-                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+                <a *ngIf="loginState == false" routerLink="/">Login</a>
             </div>
-            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/">
+            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/home">
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+                <a *ngIf="loginState == true" routerLink="/">Logout</a>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
             <div class="header-text">
                 <h1>Partner Stores</h1>
                 <h2>Find and select products from your favorite stores here.</h2>
-                <input type="text" placeholder="Search for a store here...">
+                <input type="text" [(ngModel)]="filter" placeholder="Search for a store here...">
             </div>
             <div class="header-image-container">
                 <img class="header-image" src="../../assets/images/allstores.png">
@@ -40,45 +40,9 @@
         <h1>All Stores</h1>
 
         <div class="stores-container">
-            <div class="store-card" routerLink="/store">
+            <div class="store-card" routerLink="/store" *ngFor="let store of stores | filter:filter" button (click)="gotoStore(store.store_id)">
                 <img src="../../assets/images/store.png">
-                <p>Puregold Olongapo</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Jelebee Supermart</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Store</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Store</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Store</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Puregold Olongapo</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Jelebee Supermart</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Store</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Store</p>
-            </div>
-            <div class="store-card" routerLink="/store">
-                <img src="../../assets/images/store.png">
-                <p>Store</p>
+                <p>{{ store.store_name }}</p>
             </div>
         </div>
     </div>

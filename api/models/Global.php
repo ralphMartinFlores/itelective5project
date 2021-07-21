@@ -44,6 +44,12 @@
 					WHERE order_items.order_id=$filter_data";
 				}
 			}
+
+			if($table == "stores") {
+				if($filter_data != null) {
+					$this->sql .= " WHERE store_status=1";
+				}
+			}
 			$data = array(); $code = 0; $msg= ""; $remarks = "";
 			try {
 				if ($res = $this->pdo->query($this->sql)->fetchAll()) {

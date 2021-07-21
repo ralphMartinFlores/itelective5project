@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.loginState)
     this.getUserProfile();
+    this.getStores();
   }
 
   dt: any[] = [];
@@ -28,10 +29,24 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  stores: any[] = [];
+  getStores() {
+    this.ds.sendApiRequest("stores/", null).subscribe((data: { payload: any[]; }) => {
+      this.stores = data.payload;
+      console.log(this.stores)
+    });
+  }
+
   category(cat: string) {
     window.sessionStorage.setItem(btoa('cat_id'), btoa(cat))
     window.sessionStorage.setItem('Category', cat)
     this.router.navigate(['/category']);
+  }
+
+  gotoStore(store: string) {
+    console.log(store)
+    window.sessionStorage.setItem(btoa('store_id'), btoa(store))
+    this.router.navigate(['/store']);
   }
 
 }

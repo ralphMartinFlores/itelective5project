@@ -17,23 +17,24 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
 import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component';
 import { RegisterComponent } from './register/register.component';
 import { FullproductinfoComponent } from './fullproductinfo/fullproductinfo.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'receipt', component: ReceiptComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'receipt', component: ReceiptComponent, canActivate: [AuthGuard] },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: '', component: LoginComponent },
   { path: 'store', component: StoreComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'allstores', component: AllstoresComponent },
-  { path: 'chooseupdate', component: ChooseupdateprofileComponent },
-  { path: 'updatename', component: UpdatenameComponent },
-  { path: 'updateaddress', component: UpdateaddressComponent },
-  { path: 'updatecontact', component: UpdatecontactComponent },
-  { path: 'updatepassword', component: UpdatepasswordComponent },
-  { path: 'fullorderinfo', component: FullorderinfoComponent },
+  { path: 'chooseupdate', component: ChooseupdateprofileComponent, canActivate: [AuthGuard] },
+  { path: 'updatename', component: UpdatenameComponent, canActivate: [AuthGuard] },
+  { path: 'updateaddress', component: UpdateaddressComponent, canActivate: [AuthGuard] },
+  { path: 'updatecontact', component: UpdatecontactComponent, canActivate: [AuthGuard] },
+  { path: 'updatepassword', component: UpdatepasswordComponent, canActivate: [AuthGuard] },
+  { path: 'fullorderinfo', component: FullorderinfoComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'fullproductinfo', component: FullproductinfoComponent },
 ];

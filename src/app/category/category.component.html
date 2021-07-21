@@ -11,15 +11,15 @@
     <div class="colored-bar">
         <div class="navbar">
             <div class="navbar-firsthalf">
-                <a routerLink="/">Home</a>
+                <a routerLink="/home">Home</a>
                 <a routerLink="/profile">Profile</a>
-                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+                <a *ngIf="loginState == false" routerLink="/">Login</a>
             </div>
-            <img routerLink="/" src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
+            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/home">
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+                <a *ngIf="loginState == true" routerLink="/">Logout</a>
             </div>
         </div>
     </div>
@@ -43,8 +43,8 @@
         <div class="products-container">
             <div class="product100" *ngFor="let product of dt |filter:term">
                 <div class="product">
-                    <img style="max-width: 9.37rem; height: 10rem;" src="{{ product.product_image }}">
-                    <p>{{ product.product_name }}</p>
+                    <img (click)="viewProduct(product.product_id)" style="max-width: 9.37rem; height: 10rem;" src="{{ product.product_image }}">
+                    <p (click)="viewProduct(product.product_id)">{{ product.product_name }}</p>
                     <img (click)="addToCart(product.product_id)" class="addcart-btn" src="../../assets/images/plus.png">
                 </div>
             </div>

@@ -46,9 +46,9 @@
 			return $this->sendPayload($data, $remarks, $msg, $code);
 		}
 
-		public function getOTP($dt) {
+		public function storeProducts($table, $filter_data) {
 
-			$this->sql = "SELECT acc_otp FROM accounts WHERE acc_email='$dt->acc_email'";
+			$this->sql = "SELECT * FROM $table WHERE store_id='$filter_data'";
 
 			$data = array(); $code = 0; $msg= ""; $remarks = "";
 			try {
@@ -94,6 +94,22 @@
 				$code = 403;
 			}
 			return array("code"=>$code, "errmsg"=>$errmsg);
+		}
+
+		public function getOTP($dt) {
+
+			$this->sql = "SELECT acc_otp FROM accounts WHERE acc_email='$dt->acc_email'";
+
+			$data = array(); $code = 0; $msg= ""; $remarks = "";
+			try {
+				if ($res = $this->pdo->query($this->sql)->fetchAll()) {
+					foreach ($res as $rec) { array_push($data, $rec);}
+					$res = null; $code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
+				}
+			} catch (\PDOException $e) {
+				$msg = $e->getMessage(); $code = 401; $remarks = "failed";
+			}
+			return $this->sendPayload($data, $remarks, $msg, $code);
 		}
 
         public function sendPayload($payload, $remarks, $message, $code) {

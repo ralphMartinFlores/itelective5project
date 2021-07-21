@@ -11,15 +11,15 @@
     <div class="colored-bar">
         <div class="navbar">
             <div class="navbar-firsthalf">
-                <a routerLink="/">Home</a>
+                <a routerLink="/home">Home</a>
                 <a routerLink="/profile">Profile</a>
-                <a *ngIf="loginState == false" routerLink="/login">Login</a>
+                <a *ngIf="loginState == false" routerLink="/">Login</a>
             </div>
-            <img routerLink="/" src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
+            <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/home">
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/login">Logout</a>
+                <a *ngIf="loginState == true" routerLink="/">Logout</a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                 <h1>Update Name</h1>
                 <h2>Have a new last name? Apply changes to your name here.</h2>
 
-                <div class="checkout-btn">
+                <div (click)="submitForm()" class="checkout-btn">
                     <p>Save Changes</p>
                 </div>
             </div>
@@ -43,9 +43,11 @@
         <h1>Name Information</h1>
 
         <div class="input-container">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Middle Name">
-            <input type="text" placeholder="Last Name">
+            <form [formGroup]="registrationForm" novalidate>
+                <input formControlName="acc_fname" [(ngModel)]="acc_fname" type="text" placeholder="First Name">
+                <input formControlName="acc_mname" [(ngModel)]="acc_mname" type="text" placeholder="Middle Name">
+                <input formControlName="acc_lname" [(ngModel)]="acc_lname" type="text" placeholder="Last Name">
+            </form>
         </div>
 
 

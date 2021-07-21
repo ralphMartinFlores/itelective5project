@@ -107,10 +107,10 @@
 			$data = array(); $code = 0; $msg = ""; $remarks = ""; $token = "";
 
 			try {
-				$sqlstr = "INSERT INTO accounts (acc_lname, acc_fname, acc_mname, acc_birthdate, acc_no, acc_street,
-					acc_barangay, acc_city, acc_province, acc_gender, acc_email, acc_mobile, acc_username, acc_password, acc_otp, acc_role) 
-					VALUES ('$dt->acc_lname', '$dt->acc_fname', '$dt->acc_mname', '$dt->acc_birthdate', '$dt->acc_no', 
-					'$dt->acc_street', '$dt->acc_barangay', '$dt->acc_city', '$dt->acc_province', $dt->acc_gender, 
+				$sqlstr = "INSERT INTO accounts (acc_lname, acc_fname, acc_mname, acc_no, acc_street,
+					acc_barangay, acc_city, acc_province, acc_email, acc_mobile, acc_username, acc_password, acc_otp, acc_role) 
+					VALUES ('$dt->acc_lname', '$dt->acc_fname', '$dt->acc_mname', '$dt->acc_no', 
+					'$dt->acc_street', '$dt->acc_barangay', '$dt->acc_city', '$dt->acc_province', 
 					'$dt->acc_email', '$dt->acc_mobile', '$dt->acc_username', '$encryptedPassword', '$otp', 'user')";
 					
 				if($this->pdo->query($sqlstr)) {

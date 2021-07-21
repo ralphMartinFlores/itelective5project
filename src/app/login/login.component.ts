@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         confirmButtonColor: '#228B22'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.router.navigate(['']);
+          this.router.navigate(['/home']);
         }
       })
     }, (er: any) => {
