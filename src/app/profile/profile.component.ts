@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 
@@ -9,7 +10,7 @@ import { UserService } from '../services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public user: UserService, private ds: DataService) { }
+  constructor(public user: UserService, private ds: DataService, private router: Router) { }
 
   loginState = this.user.isLoggedIn();
 
@@ -24,6 +25,12 @@ export class ProfileComponent implements OnInit {
       this.dt = data.payload;
       console.log(this.dt)
     });
+  }
+
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
   }
 
 }

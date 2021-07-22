@@ -12,15 +12,6 @@
             <div class="header-text">
                 <h1>Register to Go-cery</h1>
                 <h2>Become a member of the Go-cery family by filling in the form below.</h2>
-
-                <div class="termscbox">
-                    <input type="checkbox" name="termscbox">
-                    <label for="termscbox">I agree to the terms and conditions and privacy policy of Go-cery</label><br>
-                </div>
-
-                <div (click)="register()" class="checkout-btn">
-                    <p>Get OTP & Finish Registration</p>
-                </div>
             </div>
             <div class="header-image-container">
                 <img class="header-image" src="../../assets/images/Form.png">
@@ -29,24 +20,43 @@
 
         <h1>Name</h1>
 
-        <div class="input-container">
-            <input [(ngModel)]="acc_fname" type="text" placeholder="First Name">
-            <input [(ngModel)]="acc_mname" type="text" placeholder="Middle Name">
-            <input [(ngModel)]="acc_lname" type="text" placeholder="Last Name">
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_lname.errors?.required">Last name is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_lname.errors?.minlength">Last name should be at least 2 characters long or more.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_lname.errors?.pattern">Last name should not contain any number.</p>
+
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_fname.errors?.required">First name is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_fname.errors?.minlength">First name should be at least 2 characters long or more.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_fname.errors?.pattern">First name should not contain any number.</p>
+
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_gender.errors?.required">Your gender is required.</p>
+
+        <div class="input-container" [formGroup]="registrationForm">
+            <input formControlName="acc_fname" [(ngModel)]="acc_fname" type="text" placeholder="First Name">
+            <input [(ngModel)]="acc_mname" [ngModelOptions]="{standalone: true}" type="text" placeholder="Middle Name">
+            <input formControlName="acc_lname" [(ngModel)]="acc_lname" type="text" placeholder="Last Name">
+            <select formControlName="acc_gender" [(ngModel)]="acc_gender">
+                <option value="Gender" selected>Select Gender</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
         </div>
 
         <h1>Address</h1>
 
-        <div class="address-input-container">
-            <input [(ngModel)]="acc_no" type="text" placeholder="House Number">
-            <input [(ngModel)]="acc_street" type="text" placeholder="Street">
-            <select [(ngModel)]="acc_barangay" name="cars" id="cars">
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_no.errors?.required">House number is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_street.errors?.required">Street is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_barangay.errors?.required">Barangay is required.</p>
+
+        <div class="address-input-container" [formGroup]="registrationForm">
+            <input formControlName="acc_no" [(ngModel)]="acc_no" type="text" placeholder="House Number">
+            <input formControlName="acc_street" [(ngModel)]="acc_street" type="text" placeholder="Street">
+            <select formControlName="acc_barangay" [(ngModel)]="acc_barangay" name="cars" id="cars">
                 <option value="Barangay">Select Barangay</option>
                 <option value="Asinan">Asinan</option>
                 <option value="Banicain">Banicain</option>
                 <option value="Barretto">Barretto</option>
                 <option value="East Bajac-Bajac">East Bajac-Bajac</option>
-                <option value=">East Tapinac">East Tapinac</option>
+                <option value="East Tapinac">East Tapinac</option>
                 <option value="Gordon Heights">Gordon Heights</option>
                 <option value="Kalaklan">Kalaklan</option>
                 <option value="Mabayuan">Mabayuan</option>
@@ -59,24 +69,49 @@
                 <option value="West Bajac-Bajac">West Bajac-Bajac</option>
                 <option value="West Tapinac">West Tapinac</option>
               </select>
-            <input [(ngModel)]="acc_city" type="text" placeholder="City">
-            <input [(ngModel)]="acc_province" type="text" placeholder="Province">
+            <input [(ngModel)]="acc_city" [ngModelOptions]="{standalone: true}" type="text" placeholder="City">
+            <input [(ngModel)]="acc_province" [ngModelOptions]="{standalone: true}" type="text" placeholder="Province">
         </div>
 
         <h1>Contact Information</h1>
 
-        <div class="address-input-container">
-            <input [(ngModel)]="acc_mobile" type="text" placeholder="Contact Number">
-            <input [(ngModel)]="acc_email" type="email" placeholder="Email Address">
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_mobile.errors?.required">Mobile number is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_mobile.errors?.pattern">Mobile number should not contain any letters.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_mobile.errors?.minlength">Mobile number should be 11 numbers long.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_email.errors?.required">Email is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_email.errors?.pattern">Please enter a valid email.</p>
+
+        <div class="address-input-container" [formGroup]="registrationForm">
+            <input formControlName="acc_mobile" [(ngModel)]="acc_mobile" type="text" placeholder="Contact Number" maxLength="11">
+            <input formControlName="acc_email" [(ngModel)]="acc_email" type="email" placeholder="Email Address">
         </div>
 
         <h1>Credentials</h1>
 
-        <div class="input-container">
-            <input [(ngModel)]="acc_username" type="text" placeholder="Username">
-            <input [(ngModel)]="acc_password" type="password" placeholder="Password">
-            <input type="text" placeholder="OTP">
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_username.errors?.required">Username is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_username.errors?.minlength">Username should be at least 2 characters long or more.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_password.errors?.required">Password is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_password.errors?.minlength">Password should be at least 8 characters long or more.</p>
+
+        <div class="address-input-container" [formGroup]="registrationForm">
+            <input formControlName="acc_username" [(ngModel)]="acc_username" type="text" placeholder="Username">
+            <input formControlName="acc_password" [(ngModel)]="acc_password" type="password" placeholder="Password">
         </div>
+
+        <div class="equalflex">
+            <div class="termscbox" [formGroup]="registrationForm">
+                <input formControlName="termscbox" type="checkbox" name="termscbox">
+                <label for="termscbox">I agree to the terms and conditions and privacy policy of Go-cery</label><br>
+            </div>
+
+            <div (click)="register()" class="checkout-btn">
+                <p>Get OTP</p>
+            </div>
+
+        </div>
+
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.termscbox.errors?.required">You must agree to the terms, conditions and privacy policy of Go-cery.</p>
+
     </div>
 
     

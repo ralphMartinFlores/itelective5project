@@ -63,4 +63,10 @@ export class FullorderinfoComponent implements OnInit {
     });
   }
 
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
+  }
+
 }

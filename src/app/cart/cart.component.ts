@@ -94,4 +94,10 @@ export class CartComponent {
       })
     }
   }
+
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
+  }
 }

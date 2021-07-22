@@ -18,7 +18,7 @@
 }
 
 .termscbox {
-    margin-bottom: 1rem;
+    flex: 1;
 }
 
 .header-image {
@@ -29,12 +29,13 @@
 
 .checkout-btn {
     border-radius: 3rem;
-    background-color: forestgreen;
+    background: forestgreen;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    flex: 1;
 }
 
 .checkout-btn:hover {
@@ -55,7 +56,7 @@
     gap: 1rem;
 }
 
-.input-container input {
+.input-container input, select {
     background-color: whitesmoke;
     border: 1px solid whitesmoke;
     border-radius: 3.125rem;
@@ -85,6 +86,12 @@
     flex-grow: 1;
 }
 
+.formerror-messages {
+    border: 1px solid crimson;
+    background-color: rgb(220,20,60, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+}
 
 input:focus, select:focus {
     outline: none !important;
@@ -92,6 +99,17 @@ input:focus, select:focus {
 
 .checkbox input[type=checkbox]:checked{
     background-color: forestgreen; 
+}
+
+.equalflex {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
 }
 
 @media (max-width: 46.875rem) {
@@ -102,7 +120,8 @@ input:focus, select:focus {
     }
 
     .header-image {
-        display: none;
+        width: 100%;
+        height: auto;
     }
 
     .input-container {
@@ -112,6 +131,14 @@ input:focus, select:focus {
     }
 
     input, select {
+        width: 100%;
+    }
+
+    .equalflex {
+        flex-direction: column;
+    }
+
+    .termscbox, .checkout-btn {
         width: 100%;
     }
 }

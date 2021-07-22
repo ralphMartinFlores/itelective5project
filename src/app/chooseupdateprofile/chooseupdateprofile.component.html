@@ -19,7 +19,7 @@
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/">Logout</a>
+                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>

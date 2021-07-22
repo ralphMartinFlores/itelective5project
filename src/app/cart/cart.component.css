@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .main-container {
@@ -166,6 +167,16 @@ a {
 .header {
     font-size: 1.25rem;
     font-weight: 600;
+}
+
+.store-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.store-name span {
+    font-size: 32px;
 }
 
 @media (max-width: 46.875rem) { 

@@ -1,0 +1,75 @@
+.main-container {
+    max-width: 56.25rem;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.otp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid white;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.checkout-btn {
+    border-radius: 3rem;
+    background-color: forestgreen;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.checkout-btn:hover {
+    background-color: green;
+}
+
+.checkout-btn p {
+    font-size: 1.25rem;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+}
+
+.otp-form input {
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 3.125rem;
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.031rem;
+    margin: 0 auto;
+    min-width: 0;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.otp-form img {
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media (max-width: 46.875rem) {
+    .otp-form img {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}

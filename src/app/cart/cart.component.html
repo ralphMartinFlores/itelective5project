@@ -19,7 +19,7 @@
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/">Logout</a>
+                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>
@@ -41,6 +41,11 @@
             </div>
         </div>
 
+        <div class="store-name" *ngIf = "cart_qty.length != 0">
+            <span class="material-icons">store</span>
+            <h1>Puregold Olongapo</h1>
+        </div>
+        
         <div class="cart-container">
 
             <div class="emptymessage-container" *ngIf = "cart_qty.length === 0">

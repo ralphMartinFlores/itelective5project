@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 
@@ -45,11 +46,29 @@ export class UpdatenameComponent implements OnInit {
       let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
       this.ds.sendApiRequest("updateProfile/" + pload.id, this.registrationForm.value).subscribe((data: { payload: any[]; }) => {
         this.router.navigate(['/profile']);
-        // this.successToast("Name Updated Successfully.");
+        Swal.fire({
+          title: 'Success!',
+          text: 'Name updated successfully.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'forestgreen'
+        })
       }, (err: any) => {
-        // this.errorToast("Name was not updated.");
+        Swal.fire({
+          title: 'Oops!',
+          text: 'Your name was not updated.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'crimson'
+        })
       });
     }
+  }
+
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
   }
 
 }

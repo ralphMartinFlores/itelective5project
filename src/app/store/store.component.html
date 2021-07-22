@@ -19,7 +19,7 @@
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/">Logout</a>
+                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>
@@ -28,8 +28,8 @@
 
         <div class="header-text-image-container">
             <div class="header-text">
-                <h1>Sample Store Name</h1>
-                <h2>Find all your items available at Sample Store Name here.</h2>
+                <h1>{{ storename }}</h1>
+                <h2>Find all your items available at {{ storename }} here.</h2>
 
                 <input [(ngModel)]="term" type="text" placeholder="Search for a product here...">
                 <!-- <div class="featured-product">

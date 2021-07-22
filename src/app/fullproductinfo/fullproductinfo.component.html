@@ -19,7 +19,7 @@
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/">Logout</a>
+                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>
@@ -28,6 +28,10 @@
         <div class="header-text-image-container">
             <div class="header-text">
                 <h1>{{ product.product_name }}</h1>
+
+                <div class="product-detail">
+                    <p>₱ {{ product.product_price }}</p>
+                </div>
 
                 <div (click)="addToCart(product.product_id)" class="checkout-btn">
                     <p>Add to Cart</p>

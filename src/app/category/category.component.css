@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .main-container {
@@ -86,15 +87,12 @@ a {
 }
 
 .product {
-    /* padding: 1rem; */
-    flex-grow: 1;
     padding: 1rem;
     background-color: whitesmoke;
     border-radius: 1.25rem;
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     cursor: pointer;
     height: 100%;
@@ -118,13 +116,17 @@ a {
     cursor: pointer;
 }
 
-
 .addcart-btn {
     width: 2rem;
     height: 2rem;
-    align-self: flex-end;
+    cursor: pointer;
     margin-right: 1rem;
 }
+
+.action-btn {
+    margin-left: auto;
+}
+
 
 input {
     background-color: whitesmoke;

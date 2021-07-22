@@ -19,7 +19,7 @@
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/">Logout</a>
+                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>
@@ -67,6 +67,10 @@
 
             <div class="order-info-card">
                 <p class="header">Order Items</p>
+                <div class="store-name">
+                    <span class="material-icons">store</span>
+                    <p>Puregold Olongapo</p>
+                </div>
                 <div class="order-items" *ngFor="let item of cart">
                     <p>{{item.product_name}}</p>
                     <p>₱ {{item.product_price}} x {{item.cart_quantity}}</p>

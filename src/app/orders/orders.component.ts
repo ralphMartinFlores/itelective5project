@@ -45,4 +45,10 @@ export class OrdersComponent  {
     this.router.navigate(['/fullorderinfo'])
   }
 
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
+  }
+
 }

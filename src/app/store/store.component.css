@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .main-container {
@@ -103,14 +104,25 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 100%;
 }
 
 .product:hover {
     background-color: lightgray;
+    cursor: pointer;
 }
 
 .product p {
     padding-bottom: 0;
+    width: 14.375rem;
+}
+
+.product img {
+    mix-blend-mode: multiply;
+}
+
+.product100 {
+    flex-grow: 1;
 }
 
 .addcart-btn {

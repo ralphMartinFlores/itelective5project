@@ -30,4 +30,15 @@ export class AllstoresComponent implements OnInit {
     window.sessionStorage.setItem(btoa('store_id'), btoa(store))
     this.router.navigate(['/store']);
   }
+
+  getStoreName(store: string) {
+    console.log(store)
+    window.sessionStorage.setItem('Store Name', store)
+  }
+
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
+  }
 }

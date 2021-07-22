@@ -15,6 +15,8 @@ export class StoreComponent implements OnInit {
 
   loginState = this.user.isLoggedIn();
 
+  storename: string | null = sessionStorage.getItem("Store Name")
+
   term: any;
 
   ngOnInit(): void {
@@ -93,5 +95,11 @@ export class StoreComponent implements OnInit {
   viewProduct(product_id: any) {
     window.sessionStorage.setItem(btoa('product_id'), btoa(product_id))
     this.router.navigate(['/fullproductinfo']);
+  }
+
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
   }
 }

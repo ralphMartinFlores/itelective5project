@@ -1,6 +1,7 @@
 a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 .main-container {
@@ -102,6 +103,7 @@ input:focus {
 
 .store-card p {
     padding-bottom: 0;
+    width: 14.375rem;
 }
 
 .store-card img {

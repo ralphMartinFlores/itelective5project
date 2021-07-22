@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .main-container {
@@ -53,11 +54,6 @@ a {
     align-items: center;
     /* border: 1px solid red; */
     gap: 1rem;
-    flex: 1;
-}
-
-.header-text {
-    flex: 1;
 }
 
 .checkout-btn {
@@ -84,10 +80,24 @@ a {
     user-select: none;
 }
 
+.header-image-container {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
 .header-image-container img {
-    width: 30rem;
+    width: 20rem;
     height: auto;
     mix-blend-mode: multiply;
+}
+
+.header-text {
+    flex: 1;
+}
+
+.product-detail p {
+    font-size: 1.25rem;
 }
 
 @media (max-width: 46.875rem) { 

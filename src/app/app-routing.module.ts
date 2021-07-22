@@ -18,6 +18,7 @@ import { FullorderinfoComponent } from './fullorderinfo/fullorderinfo.component'
 import { RegisterComponent } from './register/register.component';
 import { FullproductinfoComponent } from './fullproductinfo/fullproductinfo.component';
 import { AuthGuard } from './services/auth.guard';
+import { OtpComponent } from './register/otp/otp.component'
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -37,6 +38,8 @@ const routes: Routes = [
   { path: 'fullorderinfo', component: FullorderinfoComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'fullproductinfo', component: FullproductinfoComponent },
+  { path: 'otp', component: OtpComponent },
+  
 ];
 
 @NgModule({

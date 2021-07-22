@@ -94,4 +94,10 @@ export class CategoryComponent implements OnInit {
     this.router.navigate(['/fullproductinfo']);
   }
 
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
+  }
+
 }

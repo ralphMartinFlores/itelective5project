@@ -137,4 +137,10 @@ export class ReceiptComponent implements OnInit {
     });
   }
 
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
+  }
+
 }

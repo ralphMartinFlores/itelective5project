@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .main-container {
@@ -134,6 +135,17 @@ a {
     border-radius: 1.25rem;
     color: dimgray;
     text-align: justify;
+}
+
+.store-name {
+    display: flex;
+    align-items: center;
+}
+
+.store-name p {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
 }
 
 @media (max-width: 46.875rem) { 

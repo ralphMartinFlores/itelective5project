@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fullproductinfo',
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class FullproductinfoComponent implements OnInit {
 
-  constructor(public user: UserService, private ds: DataService) { }
+  constructor(public user: UserService, private ds: DataService, private router: Router) { }
 
   loginState = this.user.isLoggedIn();
 
@@ -85,6 +86,12 @@ export class FullproductinfoComponent implements OnInit {
         });
       }
     }
+  }
+
+  logout() {
+    window.sessionStorage.clear();
+    this.user.setLogout();
+    this.router.navigate(['/']);
   }
 
 }

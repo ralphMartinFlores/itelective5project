@@ -19,7 +19,7 @@
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/">Logout</a>
+                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
         <!-- <h1>Browse by Store</h1> -->
 
         <div class="stores-container">
-            <div class="store-card" *ngFor="let store of stores | slice:0:4;" button (click)="gotoStore(store.store_id)">
+            <div class="store-card" *ngFor="let store of stores | slice:0:4;" button (click)="gotoStore(store.store_id); getStoreName(store.store_name)">
                 <img src="../../assets/images/store.png">
                 <p>{{ store.store_name }}</p>
             </div>

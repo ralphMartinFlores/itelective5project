@@ -19,7 +19,7 @@
             <div class="navbar-secondhalf">
                 <a routerLink="/cart">Cart</a>
                 <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" routerLink="/">Logout</a>
+                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>
@@ -42,10 +42,13 @@
 
         <div class="products-container">
             <div class="product100" *ngFor="let product of dt |filter:term">
-                <div class="product">
+                <div class="product"> 
                     <img (click)="viewProduct(product.product_id)" style="max-width: 9.37rem; height: 10rem;" src="{{ product.product_image }}">
-                    <p (click)="viewProduct(product.product_id)">{{ product.product_name }}</p>
-                    <img (click)="addToCart(product.product_id)" class="addcart-btn" src="../../assets/images/plus.png">
+                    <p>{{ product.product_name }}</p>
+                    <div class="action-btn">
+                        <img (click)="viewProduct(product.product_id)" class="addcart-btn" src="../../assets/images/witness.png">
+                        <img (click)="addToCart(product.product_id)" class="addcart-btn" src="../../assets/images/plus.png">
+                    </div>
                 </div>
             </div>
         </div>

@@ -25,6 +25,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { FullproductinfoComponent } from './fullproductinfo/fullproductinfo.component';
+import { OtpComponent } from './register/otp/otp.component';
+
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import { FullproductinfoComponent } from './fullproductinfo/fullproductinfo.comp
     UpdatepasswordComponent,
     FullorderinfoComponent,
     RegisterComponent,
-    FullproductinfoComponent
+    FullproductinfoComponent,
+    OtpComponent
   ],
   imports: [
     BrowserModule,
