@@ -22,6 +22,61 @@ a {
     /* border: 1px solid red; */
 }
 
+.footer-container {
+    max-width: 56.25rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+footer {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.socmedicon {
+    width: 64px;
+    height: 64px;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section p {
+    color: dimgray;
+}
+
+.socmed, .icon-text {
+    display: flex;
+    gap: 1rem;
+}
+
+.logotext {
+    text-align: center;
+}
+
+.logotext p {
+    margin: 0;
+}
+
+.zontaline {
+    border-top: 0.5px solid dimgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footext {
+    display: flex;
+    gap: 1rem;
+}
+
+.footext p, a {
+    color: dimgray;
+}
+
 .colored-bar {
     background-color: rgb(0, 128, 0, 0.3);
     width: 100%;
@@ -44,18 +99,6 @@ a {
     flex: 1;
 }
 
-/* .navbar-logo {
-    width: 100%;
-    height: auto;
-    position: relative;
-}
-
-.navbar-logo img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
 
 .navbar a:hover {
     background-color: forestgreen;
@@ -265,5 +308,9 @@ a {
 
     .header-image {
         display: none;
+    }
+
+    .socmed {
+       justify-content: center;
     }
   }

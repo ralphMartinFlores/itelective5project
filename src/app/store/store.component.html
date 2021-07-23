@@ -56,12 +56,54 @@
             <div class="product100" *ngFor="let product of dt | filter:term">
                 <div class="product">
                     <img (click)="viewProduct(product.product_id)" style="max-width: 9.37rem; height: 10rem;" src="{{ product.product_image }}">
-                    <p (click)="viewProduct(product.product_id)">{{ product.product_name }}</p>
-                    <img (click)="addToCart(product.product_id)" class="addcart-btn" src="../../assets/images/plus.png">
+                    <p (click)="viewProduct(product.product_id)">{{ product.product_name }} | ₱ {{ product.product_price }}</p>
+                    <div class="action-btn">
+                        <img (click)="viewProduct(product.product_id)" class="addcart-btn" src="../../assets/images/witness.png">
+                        <img (click)="addToCart(product.product_id)" class="addcart-btn" src="../../assets/images/plus.png">
+                    </div>
                 </div>
             </div>
         </div>
         
+    </div>
+
+    <div class="colored-bar">
+        <div class="footer-container">
+            <footer>
+                <div class="footer-section logotext">
+                    <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/home">
+                    <p>Your convenience starts here.</p>
+                </div>
+                <div class="footer-section">
+                    <p>Social Media</p>
+                    <div class="socmed">
+                        <img class="socmedicon" src="../../assets/images/facebook.png">
+                        <img class="socmedicon" src="../../assets/images/twitter.png">
+                        <img class="socmedicon" src="../../assets/images/instagram.png">
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <p>Contact Us</p>
+                    <div class="icon-text">
+                        <img class="socmedicon" src="../../assets/images/gmail.png">
+                        <p>admin.gocery@gmail.com</p>
+                    </div>
+                    <div class="icon-text">
+                        <img class="socmedicon" src="../../assets/images/telephone.png">
+                        <p>09668732466</p>
+                    </div>
+                </div>
+            </footer>
+            <div class="zontaline">
+                <div class="footext">
+                    <p>Gocery © 2021</p>
+                </div>
+                <div class="footext">
+                    <a href="">Terms & Conditions</a>
+                    <a href="">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
