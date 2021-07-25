@@ -27,7 +27,9 @@ export class CategoryComponent implements OnInit {
     let cat_id = atob(window.sessionStorage.getItem(btoa('cat_id')) || '{}')
     this.ds.sendApiRequest("products/" + cat_id, null).subscribe((data: { payload: any[]; }) => {
       this.dt = data.payload;
+      var randomitem = this.dt[Math.floor(Math.random() * this.dt.length)];
       console.log(this.dt)
+      console.log(randomitem)
     });
   }
 

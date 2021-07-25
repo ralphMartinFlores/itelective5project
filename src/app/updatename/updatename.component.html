@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container animate__animated animate__fadeIn">
         
         <div class="header-text-image-container">
             <div class="header-text">
@@ -42,14 +42,19 @@
 
         <h1>Name Information</h1>
 
-        <div class="input-container">
-            <form [formGroup]="registrationForm" novalidate>
-                <input formControlName="acc_fname" [(ngModel)]="acc_fname" type="text" placeholder="First Name">
-                <input formControlName="acc_mname" [(ngModel)]="acc_mname" type="text" placeholder="Middle Name">
-                <input formControlName="acc_lname" [(ngModel)]="acc_lname" type="text" placeholder="Last Name">
-            </form>
-        </div>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_lname.errors?.required">Last name is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_lname.errors?.minlength">Last name should be at least 2 characters long or more.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_lname.errors?.pattern">Last name should not contain any number.</p>
 
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_fname.errors?.required">First name is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_fname.errors?.minlength">First name should be at least 2 characters long or more.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_fname.errors?.pattern">First name should not contain any number.</p>
+
+        <form class="input-container" [formGroup]="registrationForm" novalidate>
+            <input formControlName="acc_fname" [(ngModel)]="acc_fname" type="text" placeholder="First Name">
+            <input formControlName="acc_mname" [(ngModel)]="acc_mname" type="text" placeholder="Middle Name">
+            <input formControlName="acc_lname" [(ngModel)]="acc_lname" type="text" placeholder="Last Name">
+        </form>
 
     </div>
 </body>

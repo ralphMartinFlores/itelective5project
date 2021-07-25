@@ -35,8 +35,14 @@ export class UpdatecontactComponent implements OnInit {
   submitForm() {
     this.isSubmitted = true;
     if (!this.registrationForm.valid) {
-      console.log('Please provide all the required values!')
-      this.isSubmitted = false;
+      Swal.fire({
+        title: 'Oops!',
+        text: 'Please provide all the required details.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'crimson'
+      })
+      return false;
     } else {
       console.log(this.registrationForm.value)
       let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));

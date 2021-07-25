@@ -220,4 +220,8 @@ input:focus {
     .product100 {
         width: 100%;
     }
+
+    .socmed {
+        justify-content: center;
+     }
 }

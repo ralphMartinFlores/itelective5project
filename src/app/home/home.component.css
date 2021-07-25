@@ -108,6 +108,7 @@ footer {
 .header-text-image-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     /* border: 1px solid red; */
     gap: 1rem;
 }
@@ -121,13 +122,15 @@ footer {
     align-items: center;
     background-color: whitesmoke;
     border-radius: 1.25rem;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
+    gap: 1rem;
 }
 
 
 .featured-product-image {
     max-width: 50%;
     height: auto;
+    mix-blend-mode: multiply;
     /* border: 1px solid red; */
 }
 

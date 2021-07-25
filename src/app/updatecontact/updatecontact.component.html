@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container animate__animated animate__fadeIn">
 
         <div class="header-text-image-container">
             <div class="header-text">
@@ -42,12 +42,13 @@
 
         <h1>Contact Information</h1>
 
-        <div class="input-container">
-            <form [formGroup]="registrationForm" novalidate>
-                <input formControlName="acc_mobile" [(ngModel)]="acc_mobile" type="text" placeholder="Contact Number">
-            </form>
-        </div>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_mobile.errors?.required">Mobile number is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_mobile.errors?.pattern">Mobile number should not contain any letters.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_mobile.errors?.minlength">Mobile number should be 11 numbers long.</p>
 
+        <form class="input-container" [formGroup]="registrationForm" novalidate>
+            <input formControlName="acc_mobile" [(ngModel)]="acc_mobile" type="text" placeholder="Contact Number">
+        </form>
 
     </div>
 </body>

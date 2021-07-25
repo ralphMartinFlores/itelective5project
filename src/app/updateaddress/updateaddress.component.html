@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container animate__animated animate__fadeIn">
 
         <div class="header-text-image-container">
             <div class="header-text">
@@ -42,34 +42,35 @@
 
         <h1>Address Information</h1>
 
-        <div class="input-container">
-            <form [formGroup]="registrationForm" novalidate>
-                <input formControlName="acc_no" [(ngModel)]="acc_no" type="text" placeholder="House Number">
-                <input formControlName="acc_street" [(ngModel)]="acc_street" type="text" placeholder="Street">
-                <select formControlName="acc_barangay" [(ngModel)]="acc_barangay" name="cars" id="cars">
-                    <option value="Barangay">Select Barangay</option>
-                    <option value="Asinan">Asinan</option>
-                    <option value="Banicain">Banicain</option>
-                    <option value="Barretto">Barretto</option>
-                    <option value="East Bajac-Bajac">East Bajac-Bajac</option>
-                    <option value=">East Tapinac">East Tapinac</option>
-                    <option value="Gordon Heights">Gordon Heights</option>
-                    <option value="Kalaklan">Kalaklan</option>
-                    <option value="Mabayuan">Mabayuan</option>
-                    <option value="New CabalanN">New Cabalan</option>
-                    <option value="New Ilalim">New Ilalim</option>
-                    <option value="New Kababae">New Kababae</option>
-                    <option value="Old Cabalan">Old Cabalan</option>
-                    <option value="Pag-asa">Pag-asa</option>
-                    <option value="Santa Rita">Santa Rita</option>
-                    <option value="West Bajac-Bajac">West Bajac-Bajac</option>
-                    <option value="West Tapinac">West Tapinac</option>
-                </select>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_no.errors?.required">House number is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_street.errors?.required">Street is required.</p>
+        <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_barangay.errors?.required">Barangay is required.</p>
+
+        <form class="input-container" [formGroup]="registrationForm" novalidate>
+            <input formControlName="acc_no" [(ngModel)]="acc_no" type="text" placeholder="House Number">
+            <input formControlName="acc_street" [(ngModel)]="acc_street" type="text" placeholder="Street">
+            <select formControlName="acc_barangay" [(ngModel)]="acc_barangay" name="cars" id="cars">
+                <option value="Barangay">Select Barangay</option>
+                <option value="Asinan">Asinan</option>
+                <option value="Banicain">Banicain</option>
+                <option value="Barretto">Barretto</option>
+                <option value="East Bajac-Bajac">East Bajac-Bajac</option>
+                <option value=">East Tapinac">East Tapinac</option>
+                <option value="Gordon Heights">Gordon Heights</option>
+                <option value="Kalaklan">Kalaklan</option>
+                <option value="Mabayuan">Mabayuan</option>
+                <option value="New CabalanN">New Cabalan</option>
+                <option value="New Ilalim">New Ilalim</option>
+                <option value="New Kababae">New Kababae</option>
+                <option value="Old Cabalan">Old Cabalan</option>
+                <option value="Pag-asa">Pag-asa</option>
+                <option value="Santa Rita">Santa Rita</option>
+                <option value="West Bajac-Bajac">West Bajac-Bajac</option>
+                <option value="West Tapinac">West Tapinac</option>
+            </select>
                 <input formControlName="acc_city" [(ngModel)]="acc_city" type="text" placeholder="City">
                 <input formControlName="acc_province" [(ngModel)]="acc_province" type="text" placeholder="Province">
-            </form>
-        </div>
-
+        </form>
 
     </div>
 </body>

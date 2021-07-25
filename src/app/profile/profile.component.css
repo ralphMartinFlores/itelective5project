@@ -56,6 +56,10 @@ a {
     gap: 1rem;
 }
 
+.header-text, .header-image-container {
+    flex: 1;
+}
+
 .header-text h2 {
     margin-top: -1.563rem;
 }

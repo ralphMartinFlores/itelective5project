@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="main-container" >
+    <div class="main-container animate__animated animate__fadeIn">
 
         <div class="header-text-image-container">
             <div class="header-text">
@@ -32,12 +32,12 @@
                 
                 <h2>What would you like to buy today?</h2>
                 <div class="featured-product">
-                    <img class="featured-product-image" src="../../assets/images/tempfeatured-product.png">
+                    <img class="featured-product-image" src="{{ randomitem.product_image }}">
                     <div class="featured-product-text">
                         <h3>Featured Product</h3>
-                        <p>Mega Sardines Chili 425G</p>
+                        <p>{{ randomitem.product_name }} | ₱ {{ randomitem.product_price }} </p>
 
-                        <div class="checkout-btn">
+                        <div class="checkout-btn" (click)="addToCart(randomitem.product_id)">
                             <p>Add to Cart</p>
                         </div>
                     </div>
