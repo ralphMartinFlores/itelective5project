@@ -23,7 +23,8 @@ export class OtpComponent {
   dt: any = {};
 
   getUserOtp() {
-    this.acc_otp_info.acc_email = window.sessionStorage.getItem('email');
+    let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
+    this.acc_otp_info.acc_email = pload.email;
     this.ds.sendApiRequest("getOTP/", this.acc_otp_info).subscribe((data: { payload: any[]; }) => {
       this.dt = data.payload;
       console.log(this.dt)
@@ -34,7 +35,8 @@ export class OtpComponent {
   }
 
   sendUserOTP() {
-    this.acc_otp_info.acc_email = window.sessionStorage.getItem('email');
+    let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
+    this.acc_otp_info.acc_email = pload.email;
     this.acc_otp_info.acc_otp = this.dt[0].acc_otp;
     this.ds.sendApiRequest("sendOTP/", this.acc_otp_info).subscribe((data: { payload: any[]; }) => {
     }, (err: any) => {
