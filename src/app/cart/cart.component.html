@@ -1,87 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+   </head>
+   <body>
+      
     <div class="colored-bar">
-        <div class="navbar">
+         <div class="navbar">
             <div class="navbar-firsthalf">
-                <a routerLink="/home">Home</a>
-                <a routerLink="/profile">Profile</a>
-                <a *ngIf="loginState == false" routerLink="/">Login</a>
+               <a routerLink="/home">Home</a>
+               <a routerLink="/profile">Profile</a>
+               <a *ngIf="loginState == false" routerLink="/">Login</a>
             </div>
             <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0" routerLink="/home">
             <div class="navbar-secondhalf">
-                <a routerLink="/cart">Cart</a>
-                <a routerLink="/orders">Orders</a>
-                <a *ngIf="loginState == true" (click)="logout()">Logout</a>
+               <a routerLink="/cart">Cart</a>
+               <a routerLink="/orders">Orders</a>
+               <a *ngIf="loginState == true" (click)="logout()">Logout</a>
             </div>
-        </div>
-    </div>
-    
-    <div class="main-container animate__animated animate__fadeIn">
-
+         </div>
+      </div>
+      
+      <div class="main-container animate__animated animate__fadeIn">
+         
         <div class="header-text-image-container">
             <div class="header-text">
-                <h1>Your Cart</h1>
-                <h2>Items you added in your cart appear here.</h2>
-
-                <div class="checkout-btn" (click)="checkOut()">
-                    <p>Checkout</p>
-                </div>
-
+               <h1>Your Cart</h1>
+               <h2>Items you added in your cart appear here.</h2>
+               <div class="checkout-btn" (click)="checkOut()">
+                  <p>Checkout</p>
+               </div>
             </div>
             <div class="header-image-container">
-                <img class="header-image" src="../../assets/images/shoppingcart.png">
+               <img class="header-image" src="../../assets/images/shoppingcart.png">
             </div>
-        </div>
+         </div>
+         
+         <div class="emptymessage-container" *ngIf = "dt.length === 0">
+            <p class="header">Nothing in your cart.</p>
+            <p>Products you add in your cart will appear here.</p>
+         </div>
 
-       
-        <div *ngFor="let seller of seller">
+         <ng-container *ngFor="let seller of seller">
             <div class="store-name" *ngIf = "dt.length != 0">
-                <span class="material-icons">store</span>
-                <h1>{{ seller.store_name }}</h1>
+               <span class="material-icons">store</span>
+               <h1>{{ seller.store_name }}</h1>
             </div>
             <div class="cart-container">
-
-                <div class="emptymessage-container" *ngIf = "dt.length === 0">
-                    <p class="header">Nothing in your cart.</p>
-                    <p>Products you add in your cart will appear here.</p>
-                </div>
-                <div *ngFor="let cartItem of dt">
-                    <div *ngIf="cartItem.store_id == seller.store_id">
-                        <div class="cart-item">
-                            <div class="cart-item-img">
-                                <img style="height: 9.375rem; width: 10rem;" src="{{ cartItem.product_image }}">
+               <ng-container *ngFor="let cartItem of dt">
+                  <ng-container *ngIf="cartItem.store_id == seller.store_id">
+                     <div class="cart-item">
+                        <div class="cart-item-img">
+                            <img src="{{ cartItem.product_image }}">
+                         </div>
+                         <div class="cart-item-half">
+                            <div class="cart-item-name">
+                               <p>{{ cartItem.product_name }}</p>
                             </div>
-                            <div class="cart-item-half">
-                                <div class="cart-item-name">
-                                    <p>{{ cartItem.product_name }}</p>
-                                </div>
-                                <div class="cart-item-quantity">
-                                    <p>Quantity:</p>
-                                    <p>{{ cartItem.cart_quantity }}</p>
-                                </div>
-                                <div class="cart-crement-buttons">
-                                    <div class="cart-quantity-crement">
-                                        <img (click)="addQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/plus.png">
-                                        <img (click)="subtractQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/negative.png">
-                                    </div>
-                                    <div class="cart-quantity-remove">
-                                        <img (click)="deleteProduct(cartItem.cart_id)" class="cart-btn" src="../../assets/images/trash.png">
-                                    </div>
-                                </div>
+                            <div class="cart-item-quantity">
+                               <p>Quantity:</p>
+                               <p>{{ cartItem.cart_quantity }}</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="cart-crement-buttons">
+                               <div class="cart-quantity-crement">
+                                  <img (click)="addQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/plus.png">
+                                  <img (click)="subtractQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/negative.png">
+                               </div>
+                               <div class="cart-quantity-remove">
+                                  <img (click)="deleteProduct(cartItem.cart_id)" class="cart-btn" src="../../assets/images/trash.png">
+                               </div>
+                            </div>
+                         </div>
+                     </div>
+                  </ng-container>
+               </ng-container>
             </div>
-        </div>
-    </div>
-</body>
+         </ng-container>
+      </div>
+      
+   </body>
 </html>

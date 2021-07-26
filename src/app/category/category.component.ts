@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
 
+  page = 1;
   term: any;
   catname: string | null = sessionStorage.getItem("Category")
   constructor(private ds: DataService, public user: UserService, private router: Router) { }
@@ -20,6 +21,11 @@ export class CategoryComponent implements OnInit {
     this.categoryProducts();
     this.getCart();
   }
+
+  onTableDataChange(event){
+    this.page = event;
+    this.categoryProducts();
+  }  
 
   dt: any[] = [];
 

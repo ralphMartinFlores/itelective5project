@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { FullproductinfoComponent } from './fullproductinfo/fullproductinfo.component';
 import { OtpComponent } from './register/otp/otp.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -58,7 +59,8 @@ import { OtpComponent } from './register/otp/otp.component';
     FormsModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [
     HttpClient
