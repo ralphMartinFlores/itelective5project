@@ -53,7 +53,7 @@
         <h1>Products</h1>
 
         <div class="products-container">
-            <div class="product100" *ngFor="let product of dt | filter:term">
+            <div class="product100" *ngFor="let product of dt | filter:term | paginate: { itemsPerPage: 8, currentPage: page }">
                 <div class="product">
                     <img (click)="viewProduct(product.product_id)" style="max-width: 9.37rem; height: 10rem;" src="{{ product.product_image }}">
                     <p (click)="viewProduct(product.product_id)">{{ product.product_name }} | ₱ {{ product.product_price }}</p>
@@ -63,6 +63,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="pagination-container">
+            <pagination-controls 
+              previousLabel="Prev" 
+              nextLabel="Next"
+              (pageChange)="onTableDataChange($event)"
+              class="my-pagination"></pagination-controls>
         </div>
         
     </div>

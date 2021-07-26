@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class StoreComponent implements OnInit {
 
+  page = 1;
+
   constructor(public user: UserService, private ds: DataService, private router: Router) { }
 
   loginState = this.user.isLoggedIn();
@@ -23,6 +25,11 @@ export class StoreComponent implements OnInit {
     this.storeProducts();
     this.getCart();
   }
+
+  onTableDataChange(event){
+    this.page = event;
+    this.storeProducts();
+  } 
 
   dt: any[] = [];
 

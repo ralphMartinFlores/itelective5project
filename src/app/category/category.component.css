@@ -207,7 +207,7 @@ input:focus {
 
 .my-pagination /deep/ .ngx-pagination .current {
     background: forestgreen;
-  }
+}
 
 @media (max-width: 46.875rem) { 
     .navbar, .header-text-image-container {
