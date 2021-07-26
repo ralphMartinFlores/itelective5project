@@ -65,15 +65,17 @@
 
             <p class="info-message">As of now, Go-cery only has Cash on Delivery as its mode of payment, other modes are expected to be implemented in the future, Stay tuned!</p>
 
-            <div class="order-info-card">
+            <div *ngFor="let seller of seller" class="order-info-card">
                 <p class="header">Order Items</p>
                 <div class="store-name">
                     <span class="material-icons">store</span>
-                    <p>Puregold Olongapo</p>
+                    <p>{{ seller.store_name }}</p>
                 </div>
-                <div class="order-items" *ngFor="let item of cart">
-                    <p>{{item.product_name}}</p>
-                    <p>₱ {{item.product_price}} x {{item.cart_quantity}}</p>
+                <div  *ngFor="let item of cart">
+                    <div class="order-items" *ngIf="item.store_id == seller.store_id">
+                        <p>{{item.product_name}}</p>
+                        <p>₱ {{item.product_price}} x {{item.cart_quantity}}</p>
+                    </div>
                 </div>
             </div>
 
@@ -85,7 +87,7 @@
                 </div>
                 <div class="order-items">
                     <p>Delivery Fee:</p>
-                    <p>₱ {{order_info.order_shipping}}</p>
+                    <p>₱100 x {{ seller.length }} = ₱ {{order_info.order_shipping}}</p>
                 </div>
                 <div class="order-items">
                     <p>Total Price:</p>

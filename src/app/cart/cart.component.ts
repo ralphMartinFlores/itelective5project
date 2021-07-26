@@ -24,9 +24,10 @@ export class CartComponent {
   message: any;
 
   cart_qty: any = "";
-  dt:any = [];
+  dt: any[] = [];
   cart_info: any = {};
-
+  seller_handler: any;
+  seller: any[] = [];
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!');
   }
@@ -37,9 +38,18 @@ export class CartComponent {
       this.dt = data.payload;
       console.log(this.dt)
       console.log(this.cart_qty)
-      if(this.dt != ''){
-      this.cart_qty = this.dt[0].cart_quantity;
+      
+      for(var i = 0; i < this.dt.length; i++) {
+        if(this.seller_handler != this.dt[i].store_id) {
+          this.seller.push(this.dt[i]);
+        }
+        this.seller_handler = this.dt[i].store_id;
       }
+
+      console.log(this.seller)
+      // if(this.dt != ''){
+      // this.cart_qty = this.dt[0].cart_quantity;
+      // }
     }, (er: any) => {
       });
   }
@@ -80,7 +90,7 @@ export class CartComponent {
   }
 
   checkOut(){
-    if(this.dt != ''){
+    if(this.dt.length != 0){
       console.log(this.dt)
       this.router.navigate(['/receipt']);
     }

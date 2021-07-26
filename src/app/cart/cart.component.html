@@ -41,38 +41,41 @@
             </div>
         </div>
 
-        <div class="store-name" *ngIf = "cart_qty.length != 0">
-            <span class="material-icons">store</span>
-            <h1>Puregold Olongapo</h1>
-        </div>
-        
-        <div class="cart-container">
-
-            <div class="emptymessage-container" *ngIf = "cart_qty.length === 0">
-                <p class="header">Nothing in your cart.</p>
-                <p>Products you add in your cart will appear here.</p>
+       
+        <div *ngFor="let seller of seller">
+            <div class="store-name" *ngIf = "dt.length != 0">
+                <span class="material-icons">store</span>
+                <h1>{{ seller.store_name }}</h1>
             </div>
+            <div class="cart-container">
 
-            <div *ngFor="let cartItem of dt">
-                <div class="cart-item">
-                    <div class="cart-item-img">
-                        <img style="height: 9.375rem; width: 10rem;" src="{{ cartItem.product_image }}">
-                    </div>
-                    <div class="cart-item-half">
-                        <div class="cart-item-name">
-                            <p>{{ cartItem.product_name }}</p>
-                        </div>
-                        <div class="cart-item-quantity">
-                            <p>Quantity:</p>
-                            <p>{{ cartItem.cart_quantity }}</p>
-                        </div>
-                        <div class="cart-crement-buttons">
-                            <div class="cart-quantity-crement">
-                                <img (click)="addQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/plus.png">
-                                <img (click)="subtractQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/negative.png">
+                <div class="emptymessage-container" *ngIf = "dt.length === 0">
+                    <p class="header">Nothing in your cart.</p>
+                    <p>Products you add in your cart will appear here.</p>
+                </div>
+                <div *ngFor="let cartItem of dt">
+                    <div *ngIf="cartItem.store_id == seller.store_id">
+                        <div class="cart-item">
+                            <div class="cart-item-img">
+                                <img style="height: 9.375rem; width: 10rem;" src="{{ cartItem.product_image }}">
                             </div>
-                            <div class="cart-quantity-remove">
-                                <img (click)="deleteProduct(cartItem.cart_id)" class="cart-btn" src="../../assets/images/trash.png">
+                            <div class="cart-item-half">
+                                <div class="cart-item-name">
+                                    <p>{{ cartItem.product_name }}</p>
+                                </div>
+                                <div class="cart-item-quantity">
+                                    <p>Quantity:</p>
+                                    <p>{{ cartItem.cart_quantity }}</p>
+                                </div>
+                                <div class="cart-crement-buttons">
+                                    <div class="cart-quantity-crement">
+                                        <img (click)="addQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/plus.png">
+                                        <img (click)="subtractQuantity(cartItem.cart_id, cartItem.cart_quantity)" class="cart-btn" src="../../assets/images/negative.png">
+                                    </div>
+                                    <div class="cart-quantity-remove">
+                                        <img (click)="deleteProduct(cartItem.cart_id)" class="cart-btn" src="../../assets/images/trash.png">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

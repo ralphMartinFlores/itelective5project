@@ -78,6 +78,7 @@
 								"id"=>$rec['acc_id'],
 								"fname"=>$rec['acc_fname'],
 								"lname"=>$rec['acc_lname'],
+								"is_activated"=>$rec['is_activated']
 							);
 						} else{
 							$res = null; $code = 401; $msg = "Incorrect Password"; $remarks = "failed";

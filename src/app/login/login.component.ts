@@ -39,17 +39,21 @@ export class LoginComponent implements OnInit {
       
       let pload = JSON.parse(atob(this.dt));
 
-      Swal.fire({
-        title: 'Success!',
-        text: 'Welcome' + " " + pload.fname + " " + pload.lname + "!",
-        icon: 'success',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#228B22'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.router.navigate(['/home']);
-        }
-      })
+      if(pload.is_activated == 0) {
+        this.router.navigate(['/otp']);
+      } else {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Welcome' + " " + pload.fname + " " + pload.lname + "!",
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#228B22'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/home']);
+          }
+        })
+      }
     }, (er: any) => {
       Swal.fire({
         title: 'Oops!',

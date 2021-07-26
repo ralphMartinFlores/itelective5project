@@ -19,8 +19,6 @@ export class ReceiptComponent implements OnInit {
   
   ngOnInit() {
     this.getUserProfile();
-    this.getCart();
-    
   }
 
   dt: any[] = [];
@@ -29,7 +27,6 @@ export class ReceiptComponent implements OnInit {
     let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
     this.ds.sendApiRequest("accounts/" + pload.id, null).subscribe((data: { payload: any[]; }) => {
       this.dt = data.payload;
-      console.log(this.dt)
     });
   }
 
@@ -40,18 +37,29 @@ export class ReceiptComponent implements OnInit {
     let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
     this.toClearCart.cart_status = 0;
     this.ds.sendApiRequest("clearCart/" + pload.id, this.toClearCart).subscribe((data: { payload: any[]; }) => {
+
     });
   }
 
-  cart: any = [];
+  cart: any[] = [];
   cart_qty: any = "";
+
+  seller_handler: any;
+  seller: any[] = [];
 
   getCart() {
     let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
     this.ds.sendApiRequest("cart/" + pload.id, null).subscribe((data: { payload: any[]; }) => {
       this.cart = data.payload;
-      console.log(this.cart)
-      if(this.cart != ''){
+      console.log(this.cart.length)
+      for(var i = 0; i < this.cart.length; i++) {
+        if(this.seller_handler != this.cart[i].store_id) {
+          this.seller.push(this.cart[i]);
+        }
+        this.seller_handler = this.cart[i].store_id;
+      }
+      console.log(this.seller)
+      if(this.cart.length != 0){
         this.getTotal()
       }else{
         // this.presentToast("Your cart doesn't have any product/s yet");
@@ -62,21 +70,6 @@ export class ReceiptComponent implements OnInit {
   
   }
 
-  // async presentToast(messageError) {
-  //   const toast = await this.toastCtrl.create({
-  //       duration: 1200,
-  //       color: 'dark',
-  //       message: messageError,
-  //       position: 'bottom',
-  //       cssClass: 'my-custom-class'
-  //     });
-  //   toast.present();
-  // }
-
-  // back(){
-  //   this.router.navigate(['/cart']);
-    
-  // }
 
   order_info: any = {};
   prod_id: any = [];
@@ -91,7 +84,7 @@ export class ReceiptComponent implements OnInit {
     this.order_total_product = [];
     
     let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
-    if(this.cart != ''){
+    if(this.cart.length != 0){
       console.log(this.cart);
       for(var i = 0; i < this.cart.length; i++) {
         this.item_quantity.push(this.cart[i].cart_quantity);
@@ -103,7 +96,7 @@ export class ReceiptComponent implements OnInit {
 
       this.order_info.item_quantity = this.item_quantity;
       this.order_info.product_id = this.prod_id;
-      this.order_info.order_shipping = 100;
+      this.order_info.order_shipping = 100 * this.seller.length;
       this.order_info.order_total = this.order_total_product;
       this.order_info.order_grandtotal = 100 + Number(this.order_total_product);
       this.order_info.acc_id = pload.id;

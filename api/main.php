@@ -151,7 +151,7 @@
 
 				case 'sendOTP':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
-					echo sendOTP($d);
+					echo json_encode(sendOTP($d));
 				break;
 
 				case 'getOTP':

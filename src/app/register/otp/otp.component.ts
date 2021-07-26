@@ -41,16 +41,24 @@ export class OtpComponent {
     });
   }
 
+  
+  acc_activate: any = {}
   nextForm() {
     if(this.dt[0].acc_otp == this.acc_otp) {
-      this.router.navigate(['/']);
-      Swal.fire({
-        title: 'Success!',
-        text: 'Your registration is now complete.',
-        icon: 'success',
-        confirmButtonText: 'OK',
-        confirmButtonColor: 'forestgreen'
+      this.acc_activate.is_activated = 1;
+      let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
+      this.ds.sendApiRequest("updateProfile/" + pload.id, this.acc_activate).subscribe((data: { payload: any[]; }) => {
+        this.router.navigate(['/home']);
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your registration is now complete.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'forestgreen'
+        })
       })
+      
+      
     } else {
       Swal.fire({
         title: 'Oops!',
