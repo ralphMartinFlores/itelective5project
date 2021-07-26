@@ -78,6 +78,7 @@
 								"id"=>$rec['acc_id'],
 								"fname"=>$rec['acc_fname'],
 								"lname"=>$rec['acc_lname'],
+								"email"=>$rec['acc_email'],
 								"is_activated"=>$rec['is_activated']
 							);
 						} else{
