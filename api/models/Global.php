@@ -29,7 +29,7 @@
 				if($filter_data != null) {
 					$this->sql .= " LEFT JOIN products ON cart.product_id = products.product_id 
 						LEFT JOIN stores ON products.store_id = stores.store_id
-						WHERE cart.acc_id=$filter_data AND cart.cart_status = 1";
+						WHERE cart.acc_id=$filter_data AND cart.cart_status = 1 ORDER BY stores.store_id";
 				}
 			}
 

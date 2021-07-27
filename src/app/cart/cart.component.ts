@@ -40,7 +40,6 @@ export class CartComponent {
     this.ds.sendApiRequest("cart/" + pload.id, null).subscribe((data: { payload: any[]; }) => {
       this.dt = data.payload;
       console.log(this.dt)
-      console.log(this.cart_qty)
       
       for(var i = 0; i < this.dt.length; i++) {
         if(this.seller_handler != this.dt[i].store_id) {
