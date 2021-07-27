@@ -34,6 +34,9 @@ export class CartComponent {
 
   getCart() {
     let pload = JSON.parse(atob(window.sessionStorage.getItem(btoa('payload')) || '{}'));
+
+    this.seller = [];
+    this.seller_handler = null;
     this.ds.sendApiRequest("cart/" + pload.id, null).subscribe((data: { payload: any[]; }) => {
       this.dt = data.payload;
       console.log(this.dt)
