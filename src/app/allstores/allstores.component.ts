@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
@@ -9,6 +10,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./allstores.component.css']
 })
 export class AllstoresComponent implements OnInit {
+
+  search = new FormControl();
 
   constructor(private ds: DataService, public user: UserService, private router: Router) { }
 

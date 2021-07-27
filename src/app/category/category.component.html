@@ -31,7 +31,7 @@
                 <h1>{{ catname }} Category</h1>
                 <h2>Find all products from your chosen category here.</h2>
 
-                <input [(ngModel)]="term" type="text" placeholder="Search for a product here...">
+                <input [formControl]="search" [(ngModel)]="term" type="text" placeholder="Search for a product here...">
             </div>
             <div class="header-image-container">
                 <img class="header-image" src="../../assets/images/gone-shopping.png">
@@ -52,6 +52,13 @@
                 </div>
             </div>
         </div>
+
+        <ng-container *ngIf="(dt | filter:search.value) as result">
+            <div class="noresultfound-container" *ngIf="result.length === 0">
+                <img src="../../assets/images/noresultsfound.png" class="noresultfoundimg">
+                <p>No product found.</p>
+            </div>
+        </ng-container>
 
         <div class="pagination-container">
             <pagination-controls 

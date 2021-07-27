@@ -31,19 +31,7 @@
                 <h1>{{ storename }}</h1>
                 <h2>Find all your items available at {{ storename }} here.</h2>
 
-                <input [(ngModel)]="term" type="text" placeholder="Search for a product here...">
-                <!-- <div class="featured-product">
-                    <img class="featured-product-image" src="../../assets/images/tempfeatured-product.png">
-                    <div class="featured-product-text">
-                        <h3>Featured Product</h3>
-                        <p>Sample Featured Product Name</p>
-
-                        <div class="checkout-btn">
-                            <p>Add to Cart</p>
-                        </div>
-                    </div>
-                </div> -->
-
+                <input [formControl]="search" [(ngModel)]="term" type="text" placeholder="Search for a product here...">
             </div>
             <div class="header-image-container">
                 <img class="header-image" src="../../assets/images/emptycart.png">
@@ -64,6 +52,13 @@
                 </div>
             </div>
         </div>
+
+        <ng-container *ngIf="(dt | filter:search.value) as result">
+            <div class="noresultfound-container" *ngIf="result.length === 0">
+                <img src="../../assets/images/noresultsfound.png" class="noresultfoundimg">
+                <p>No product found.</p>
+            </div>
+        </ng-container>
 
         <div class="pagination-container">
             <pagination-controls 

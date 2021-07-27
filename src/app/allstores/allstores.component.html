@@ -30,10 +30,10 @@
             <div class="header-text">
                 <h1>Partner Stores</h1>
                 <h2>Find and select products from your favorite stores here.</h2>
-                <input type="text" [(ngModel)]="filter" placeholder="Search for a store here...">
+                <input type="text" [formControl]="search" [(ngModel)]="filter" placeholder="Search for a store here...">
             </div>
             <div class="header-image-container">
-                <img class="header-image" src="../../assets/images/allstores.png">
+                <img class="header-image" src="../../assets/images/allstores (2).png">
             </div>
         </div>
 
@@ -45,6 +45,13 @@
                 <p>{{ store.store_name }}</p>
             </div>
         </div>
+
+        <ng-container *ngIf="(stores | filter:search.value) as result">
+            <div class="noresultfound-container" *ngIf="result.length === 0">
+                <img src="../../assets/images/noresultsfound.png" class="noresultfoundimg">
+                <p>No product found.</p>
+            </div>
+        </ng-container>
     </div>
 
     <div class="colored-bar">

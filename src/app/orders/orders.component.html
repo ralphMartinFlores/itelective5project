@@ -45,7 +45,8 @@
 
             <div *ngFor="let order of dt" class="order-card" (click)="viewFullDetails(order)">
                 <div class="order-card-img">
-                    <img src="../../assets/images/tbd.png">
+                    <img *ngIf="order.order_status == 1" src="../../assets/images/tbd.png">
+                    <img *ngIf="order.order_status == 0" src="../../assets/images/cancelledorder.png">
                 </div>
                 <div class="order-card-text">
                     <p>Order #{{ order.order_id }}</p>

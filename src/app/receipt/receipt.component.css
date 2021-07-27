@@ -148,6 +148,11 @@ a {
     margin: 0;
 }
 
+.material-icons {
+    vertical-align: -5px !important;
+    margin-right: 5px;
+}
+
 @media (max-width: 46.875rem) { 
     .navbar, .header-text-image-container {
         display: flex;

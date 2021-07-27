@@ -3,6 +3,7 @@ import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-category',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  
+  search = new FormControl();
 
   page = 1;
   term: any;

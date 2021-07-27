@@ -66,11 +66,10 @@
             <p class="info-message">As of now, Go-cery only has Cash on Delivery as its mode of payment, other modes are expected to be implemented in the future, Stay tuned!</p>
 
             <div *ngFor="let seller of seller" class="order-info-card">
-                <p class="header">Order Items</p>
                 <div class="store-name">
-                    <span class="material-icons">store</span>
-                    <p>{{ seller.store_name }}</p>
+                    <p class="header">Order Items from <span class="material-icons">store</span>{{ seller.store_name }}</p>
                 </div>
+                <!-- <p class="header">Order Items from <span class="material-icons">store</span>{{ seller.store_name }}<span></span></p> -->
                 <div  *ngFor="let item of cart">
                     <div class="order-items" *ngIf="item.store_id == seller.store_id">
                         <p>{{item.product_name}}</p>

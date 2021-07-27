@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-store',
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 export class StoreComponent implements OnInit {
 
   page = 1;
+  search = new FormControl();
 
   constructor(public user: UserService, private ds: DataService, private router: Router) { }
 

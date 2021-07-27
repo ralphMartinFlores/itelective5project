@@ -4,6 +4,7 @@
     padding: 1rem;
     margin: 0 auto;
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 100vh;
 }
@@ -61,7 +62,7 @@ input:focus {
 }
 
 .otp-form img {
-    width: 75%;
+    width: 80%;
     height: auto;
     margin: 0 auto;
 }

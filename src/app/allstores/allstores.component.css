@@ -167,6 +167,15 @@ input:focus {
     height: 8rem;
 }
 
+.noresultfound-container {
+    text-align: center;
+}
+
+.noresultfoundimg {
+    width: 250px;
+    height: auto;
+}
+
 @media (max-width: 46.875rem) { 
     .navbar, .header-text-image-container {
         display: flex;
