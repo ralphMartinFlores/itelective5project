@@ -30,12 +30,12 @@
 
         <p class="formerror-messages" *ngIf="isSubmitted && errorControl.acc_gender.errors?.required">Your gender is required.</p>
 
-        <div class="input-container" [formGroup]="registrationForm">
+        <div class="address-input-container" [formGroup]="registrationForm">
             <input formControlName="acc_fname" [(ngModel)]="acc_fname" type="text" placeholder="First Name">
             <input [(ngModel)]="acc_mname" [ngModelOptions]="{standalone: true}" type="text" placeholder="Middle Name">
             <input formControlName="acc_lname" [(ngModel)]="acc_lname" type="text" placeholder="Last Name">
-            <select formControlName="acc_gender" [(ngModel)]="acc_gender">
-                <option value="Gender" selected>Select Gender</option>
+            <select formControlName="acc_gender" [(ngModel)]="acc_gender" name="gender" required>
+                <option value="" selected disabled hidden>Select a Gender</option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
             </select>

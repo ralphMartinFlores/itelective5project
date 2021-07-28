@@ -10,18 +10,16 @@
     <div class="main-container">
         <div class="login-container">
             <img class="login-illustration" src="../../assets/images/login.jpg">
-            <div class="login-form">
+            <div class="login-form" [formGroup]="loginForm">
                 <img src="https://i.ibb.co/jk6RMrs/templogo.png" alt="templogo" border="0">
                 <p class="intro-message-header">Welcome Shoppers!</p>
                 <p class="intro-message">Your convenience starts here.</p>
-                <input [(ngModel)]="acc_username" type="text" placeholder="Username" required>
-                <input [(ngModel)]="acc_password" type="password" placeholder="Password" required>
+                <input formControlName="acc_username" [(ngModel)]="acc_username" type="text" placeholder="Username" required>
+                <input formControlName="acc_password" [(ngModel)]="acc_password" type="password" placeholder="Password" required>
                 <div (click)="login()" class="login-btn">
                     <p>Log in</p>
                 </div>
                 <div class="otherlogin-options">
-                    <p><a href="">Forgot Password</a></p>
-                    <p>|</p>
                     <p><a routerLink="/register"> Sign up here</a></p>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,20 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private ds: DataService, private user: UserService, private router: Router) { }
+  loginForm: FormGroup;
+  isSubmitted = false;
+
+  constructor(private ds: DataService, private user: UserService, private router: Router, public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      acc_username: ['', [Validators.required]],
+      acc_password: ['', [Validators.required]]
+    })
+  }
+
+  get errorControl() {
+    return this.loginForm.controls;
   }
 
 
@@ -24,8 +36,19 @@ export class LoginComponent implements OnInit {
   acc_info: any = {};
 
   login() {
-    
-    this.acc_info.acc_password = this.acc_password;
+    this.isSubmitted = true;
+    if (!this.loginForm.valid) {
+      Swal.fire({
+        title: 'Oops!',
+        text: 'You have to enter your username and/or your password.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'crimson'
+      })
+      return false;
+    } 
+    else {
+      this.acc_info.acc_password = this.acc_password;
     this.acc_info.acc_username = this.acc_username;
 
     if(this.acc_info.acc_password == null || this.acc_info.acc_username ==null){
@@ -63,6 +86,7 @@ export class LoginComponent implements OnInit {
         confirmButtonColor: 'crimson'
       })
     });
+    }
   }
 
 }

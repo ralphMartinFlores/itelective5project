@@ -103,6 +103,14 @@
     color: forestgreen;
 }
 
+.formerror-messages {
+    border: 1px solid crimson;
+    background-color: rgb(220,20,60, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 30rem;
+}
+
 @media (max-width: 46.875rem) { 
     .login-container {
         display: flex;
