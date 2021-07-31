@@ -65,58 +65,55 @@ export class RegisterComponent implements OnInit {
       })
       return false;
     } else {
-    this.acc_info.acc_fname = this.acc_fname;
-    this.acc_info.acc_lname = this.acc_lname;
-    this.acc_info.acc_mname = this.acc_mname;
-    this.acc_info.acc_gender = this.acc_gender;
-    this.acc_info.acc_no = this.acc_no;
-    this.acc_info.acc_street = this.acc_street;
-    this.acc_info.acc_barangay = this.acc_barangay;
-    this.acc_info.acc_city = this.acc_city;
-    this.acc_info.acc_province = this.acc_province;
-    this.acc_info.acc_email = this.acc_email;
-    this.acc_info.acc_mobile = this.acc_mobile;
-    this.acc_info.acc_username = this.acc_username;
-    this.acc_info.acc_password = this.acc_password;
+      this.acc_info.acc_fname = this.acc_fname;
+      this.acc_info.acc_lname = this.acc_lname;
+      this.acc_info.acc_mname = this.acc_mname;
+      this.acc_info.acc_gender = this.acc_gender;
+      this.acc_info.acc_no = this.acc_no;
+      this.acc_info.acc_street = this.acc_street;
+      this.acc_info.acc_barangay = this.acc_barangay;
+      this.acc_info.acc_city = this.acc_city;
+      this.acc_info.acc_province = this.acc_province;
+      this.acc_info.acc_email = this.acc_email;
+      this.acc_info.acc_mobile = this.acc_mobile;
+      this.acc_info.acc_username = this.acc_username;
+      this.acc_info.acc_password = this.acc_password;
 
-    console.log(this.acc_info)
-
-    this.ds.sendApiRequest("checkEmail/", this.acc_info).subscribe((data: { payload: any[]; }) => {
-      this.ds.sendApiRequest("checkUsername/", this.acc_info).subscribe((data: { payload: any[]; }) => {
-        this.ds.sendApiRequest("register/", this.acc_info).subscribe((data: { payload: any[]; }) => {
-          window.sessionStorage.setItem('email', this.acc_email);
-          Swal.fire({
-            title: 'Success!',
-            text: "Please check your email to see the OTP code we've sent you.",
-            icon: 'success',
-            confirmButtonText: 'OK',
-            confirmButtonColor: 'forestgreen'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              this.router.navigate(['otp']);
-            }
-          })
+      this.ds.sendApiRequest("checkEmail/", this.acc_info).subscribe((data: { payload: any[]; }) => {
+        this.ds.sendApiRequest("checkUsername/", this.acc_info).subscribe((data: { payload: any[]; }) => {
+          this.ds.sendApiRequest("register/", this.acc_info).subscribe((data: { payload: any[]; }) => {
+            Swal.fire({
+              title: 'Success!',
+              text: "Please check your email to see the OTP code we've sent you.",
+              icon: 'success',
+              confirmButtonText: 'OK',
+              confirmButtonColor: 'forestgreen'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.router.navigate(['/']);
+              }
+            })
+          }, (err: any) => {
+      
+          });
         }, (err: any) => {
-    
+          Swal.fire({
+            title: 'Oops!',
+            text: 'Desired username already exists.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            confirmButtonColor: 'crimson'
+          })
         });
       }, (err: any) => {
         Swal.fire({
           title: 'Oops!',
-          text: 'Desired username already exists.',
+          text: 'Email Address already exists.',
           icon: 'error',
           confirmButtonText: 'OK',
           confirmButtonColor: 'crimson'
         })
       });
-    }, (err: any) => {
-      Swal.fire({
-        title: 'Oops!',
-        text: 'Email Address already exists.',
-        icon: 'error',
-        confirmButtonText: 'OK',
-        confirmButtonColor: 'crimson'
-      })
-    });
     }
 
   }
