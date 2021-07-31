@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   featuredProduct() {
     this.ds.sendApiRequest("products/", null).subscribe((data: { payload: any[]; }) => {
       this.productdata = data.payload;
-      this.randomitem= this.productdata[Math.floor(Math.random() * this.productdata.length)];
+      this.randomitem = this.productdata[Math.floor(Math.random() * this.productdata.length)];
       console.log(this.randomitem)
     });
   }

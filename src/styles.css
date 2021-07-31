@@ -14,3 +14,16 @@ body {
     margin: 0;
     font-family: sans-serif;
 }
+
+.navbar a:hover {
+	transform: scale(1.10);
+    background-color: forestgreen;
+    color: black;
+    border-radius: 7px;
+    transition: transform 250ms cubic-bezier(.2,.8,.4,1);
+    color: white;
+}
+
+.navbar img {
+  cursor: pointer;
+}

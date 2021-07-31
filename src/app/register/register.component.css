@@ -56,6 +56,17 @@
     gap: 1rem;
 }
 
+.input-container input, select {
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 3.125rem;
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.031rem;
+    margin: 0 auto;
+    min-width: 0;
+}
 
 .address-input-container {
     display: flex;
